@@ -11,6 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/devicon/devicon.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -210,6 +211,10 @@
       position: relative;
     }
 
+    .section.angled {
+      padding-top: 3rem;
+    }
+
     .section-title {
       position: relative;
       display: inline-block;
@@ -221,9 +226,14 @@
       position: absolute;
       bottom: -10px;
       left: 0;
-      width: 50%;
+      width: 100%;
       height: 3px;
       background: var(--primary);
+    }
+
+    #sobre-mi .section-title::after {
+      left: 0;
+      width: 100%;
     }
 
     .angled {
@@ -233,18 +243,119 @@
     .angled::before {
       content: '';
       position: absolute;
-      top: -80px;
+      top: -40px;
       left: 0;
       width: 100%;
-      height: 100px;
+      height: 50px;
       background: var(--dark-bg);
       clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
       z-index: 1;
     }
 
+    .about-container {
+      display: flex;
+      gap: 2rem;
+      align-items: stretch;
+      min-height: 500px;
+    }
+
+    .card-profile {
+      width: 30%;
+      padding: 40px 30px;
+      border-radius: 1rem;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-profile img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 5px solid var(--white);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      padding: 4px;
+      background-color: var(--white);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -100px;
+    }
+
+    .card-profile h3 {
+      margin-top: 20px;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    .info-group {
+      text-align: left;
+      margin-top: 30px;
+      flex-grow: 1;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      color: var(--light-gray);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 10px;
+    }
+
+    .info-item i {
+      color: var(--primary);
+      margin-right: 12px;
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      margin-top: 25px;
+    }
+
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      margin: 5px;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    }
+
     .about-content {
-      max-width: 800px;
-      margin: 0 auto;
+      width: 70%;
+      text-align: center;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .project-card {
@@ -313,23 +424,29 @@
     .carousel-item {
       padding: 2rem 0;
     }
+
     .tech-item {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100px;
     }
-    .tech-item i, .tech-item img {
+
+    .tech-item i,
+    .tech-item img {
       font-size: 3.5rem;
       height: 3.5rem;
       width: auto;
       opacity: 0.8;
       transition: all 0.3s ease;
     }
+
     .tech-item img {
       margin: 0 1rem;
     }
-    .tech-item i:hover, .tech-item img:hover {
+
+    .tech-item i:hover,
+    .tech-item img:hover {
       opacity: 1;
       transform: scale(1.1);
     }
@@ -342,11 +459,10 @@
       align-items: center;
     }
 
-    /* FLECHAS ICONOS CON DEGRADADO */
     .carousel-control-prev i,
     .carousel-control-next i {
       font-size: 3rem;
-      background: linear-gradient(to right, #00f0ff, #002aff);
+      background: var(--accent);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -358,20 +474,21 @@
       transform: scale(1.2);
     }
 
-    /* INDICADORES CON DEGRADADO */
     .carousel-indicators {
       bottom: -50px;
     }
+
     .carousel-indicators [data-bs-target] {
       width: 12px;
       height: 12px;
       border-radius: 50%;
-      background-image: linear-gradient(to right, #00f0ff, #002aff);
+      background-image: var(--accent);
       background-size: cover;
       background-repeat: no-repeat;
       opacity: 0.7;
       transition: opacity 0.3s ease;
     }
+
     .carousel-indicators .active {
       opacity: 1;
     }
@@ -451,38 +568,6 @@
       color: var(--primary);
     }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
-      }
-
-      .section {
-        padding: 4rem 0;
-      }
-
-      .section-title {
-        margin-bottom: 2rem;
-      }
-
-      .contact-form {
-        padding: 1.5rem;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .btn-primary,
-      .btn-outline-light {
-        width: 100%;
-      }
-    }
-
     .footer-title {
       background: var(--accent);
       -webkit-background-clip: text;
@@ -510,7 +595,65 @@
       text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
     }
 
+    @media (max-width: 992px) {
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+      }
+
+      .card-profile,
+      .about-content {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .card-profile {
+        margin-bottom: 2rem;
+      }
+
+      .tech-item i,
+      .tech-item img {
+        font-size: 2.8rem;
+        height: 2.8rem;
+      }
+    }
+
     @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section.angled {
+        padding-top: 2rem;
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-outline-light {
+        width: 100%;
+      }
+
       .footer-box {
         text-align: center;
       }
@@ -524,6 +667,31 @@
       .social-hover:hover {
         border-left: none;
         transform: scale(1.05);
+      }
+
+      .tech-item i,
+      .tech-item img {
+        font-size: 2.2rem;
+        height: 2.2rem;
+      }
+
+      .tech-item img {
+        margin: 0 0.5rem;
+      }
+
+      .carousel-item .row {
+        justify-content: space-around;
+      }
+
+      .carousel-item .col-2 {
+        flex: 0 0 18%;
+        max-width: 18%;
+      }
+
+      /* Hide carousel arrows on mobile */
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
       }
     }
   </style>
@@ -551,6 +719,7 @@
   <!-- Hero -->
   <section id="inicio" class="hero">
     <div class="container hero-content">
+      <br>
       <h1>Jesus Manuel Macalupu Estelo</h1>
       <p class="lead"><strong>Ingeniero de Sistemas</strong></p>
       <p class="lead">Hola, Soy Desarrollador web especializado en crear soluciones innovadoras y creativas, centradas
@@ -559,7 +728,6 @@
         <a href="#proyectos" class="btn-outline-light">Ver proyectos</a>
         <a href="#contacto" class="btn-primary">Contactar</a>
       </div>
-
       <a href="#" class="btn-cv">
         <span>Descargar CV</span>
         <i class="bi bi-download"></i>
@@ -569,99 +737,124 @@
 
   <!-- Sobre mí -->
   <section id="sobre-mi" class="section">
-    <div class="container text-center">
-      <h2 class="section-title">Sobre Mí</h2>
-      <div class="about-content">
-        <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales únicas y funcionales. Con
-          más de [X] años de experiencia, me especializo en el desarrollo front-end y back-end, combinando habilidades
-          técnicas con un fuerte enfoque en el diseño UI/UX.</p>
-        <p class="mb-5">Mi enfoque se basa en entender las necesidades del usuario para crear soluciones que no solo
-          sean visualmente atractivas, sino también intuitivas y eficientes. Me mantengo constantemente actualizado con
-          las últimas tecnologías y tendencias del sector.</p>
-
-        <h4 class="mb-4">Habilidades Técnicas</h4>
-        <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-2 tech-item">
-              <i class="devicon-html5-plain colored" title="HTML5"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-css3-plain colored" title="CSS3"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-typescript-plain colored" title="TypeScript"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png" alt="Tailwind CSS Logo" title="Tailwind CSS">
+    <br>
+    <div class="container">
+      <div class="about-container">
+        <div class="card-profile">
+          <img src="img/Carnet.png" alt="Foto de perfil">
+          <h3>Jesus Manuel Macalupu Estelo</h3>
+          <div class="info-group">
+            <div class="info-item"><i class="fas fa-graduation-cap"></i> Ingeniería de Sistemas</div>
+            <div class="info-item"><i class="fas fa-university"></i> Universidad Autónoma del Perú</div>
+            <div class="info-item"><i class="fas fa-cake-candles"></i> 21 años</div>
+            <div class="info-item"><i class="fas fa-location-dot"></i> Perú, Lima, Villa el Salvador</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> manuelestelo23@gmail.com</div>
+            <div class="info-item"><i class="fas fa-phone"></i> +51 904 652 881</div>
+          </div>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/tuusuario" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/tuusuario" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:tuemail@gmail.com?subject=Asunto&body=Hola, quiero hablar sobre..."><i class="fab fa-google"></i></a>
+            <a href="https://wa.me/51999999999" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 class="section-title">Sobre Mí</h2>
+          <div>
+            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4 meses de
+              experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque UI/UX para
+              lograr soluciones efectivas y bien estructuradas.</p>
+            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre al día
+              con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
+            <h4 class="mb-4">Habilidades Técnicas</h4>
+            <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <i class="devicon-html5-plain colored" title="HTML5"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-css3-plain colored" title="CSS3"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-typescript-plain colored" title="TypeScript"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png"
+                          alt="Tailwind CSS Logo" title="Tailwind CSS">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                          alt="Python Logo" title="Python">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                          alt="Figma Logo" title="Figma">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                          alt="Vue.js Logo" title="Vue.js">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                          alt="Node.js Logo" title="Node.js">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-mysql-plain colored" title="MySQL"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <i class="devicon-git-plain colored" title="Git"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-php-plain colored" title="PHP"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#techCarousel" data-bs-slide="prev">
+                <i class="bi bi-caret-left" aria-hidden="true"></i>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#techCarousel" data-bs-slide="next">
+                <i class="bi bi-caret-right" aria-hidden="true"></i>
+                <span class="visually-hidden">Next</span>
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-2 tech-item">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo" title="Python">
-            </div>
-            <div class="col-2 tech-item">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" alt="Figma Logo" title="Figma">
-            </div>
-            <div class="col-2 tech-item">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue.js Logo" title="Vue.js">
-            </div>
-            <div class="col-2 tech-item">
-              <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js">
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-mysql-plain colored" title="MySQL"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-2 tech-item">
-              <i class="devicon-git-plain colored" title="Git"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-php-plain colored" title="PHP"></i>
-            </div>
-            <div class="col-2 tech-item">
-              <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Flechas personalizadas con degradado -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#techCarousel" data-bs-slide="prev">
-      <i class="bi bi-caret-left" aria-hidden="true"></i>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#techCarousel" data-bs-slide="next">
-      <i class="bi bi-caret-right" aria-hidden="true"></i>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
       </div>
     </div>
   </section>
@@ -673,13 +866,11 @@
       <div class="row g-4">
         <div class="col-md-4">
           <div class="card project-card">
-            <img
-              src="img/proyecto-promolider.webp"
-              class="project-img" alt="Pagina Web de Promolíder ORG">
+            <img src="img/proyecto-promolider.webp" class="project-img" alt="Pagina Web de Promolíder ORG">
             <div class="project-body">
               <h5 class="fw-bold">Página Web de Promolíder ORG</h5>
-              <p class="text-white">Sitio web responsive para Promolíder ORG, plataforma que conecta productores y distribuidores de cursos 
-                digitales para monetizar el conocimiento.</p>
+              <p class="text-white">Sitio web responsive para Promolíder ORG, plataforma que conecta productores y
+                distribuidores de cursos digitales para monetizar el conocimiento.</p>
               <div class="project-tech">
                 <i class="devicon-html5-plain colored" title="HTML5"></i>
                 <i class="devicon-css3-plain colored" title="CSS3"></i>
@@ -688,65 +879,68 @@
                 <i class="devicon-mysql-plain colored" title="MySQL"></i>
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-                <img 
-                  src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" 
-                  alt="Node.js Logo" 
-                  title="Node.js" 
-                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" 
-                  onmouseover="this.style.transform='scale(1.1)'" 
-                  onmouseout="this.style.transform='scale(1)'"
-                />
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo"
+                  title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
-              <a href="https://promolider.org/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver
-                proyecto</a>
+              <a href="https://promolider.org/" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card project-card">
-            <img
-              src="img/proyecto-ipssoma.webp"
-              class="project-img" alt="SEO en la Página Web de IPSSOMA">
+            <img src="img/proyecto-ipssoma.webp" class="project-img" alt="SEO en la Página Web de IPSSOMA">
             <div class="project-body">
               <h5 class="fw-bold">SEO en la Página Web de IPSSOMA</h5>
-              <p class="text-white">Optimización SEO para IPSSOMA, plataforma educativa en Seguridad, Medio Ambiente y Calidad. Se mejoró el posicionamiento y la estructura del contenido.</p>
+              <p class="text-white">Optimización SEO para IPSSOMA, plataforma educativa en Seguridad, Medio Ambiente y
+                Calidad. Se mejoró el posicionamiento y la estructura del contenido.</p>
               <div class="project-tech">
                 <i class="devicon-html5-plain colored" title="HTML5"></i>
                 <i class="devicon-css3-plain colored" title="CSS3"></i>
                 <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-                <img 
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" 
-                  alt="Vue.js Logo" 
-                  title="Vue.js" 
-                  style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" 
-                  onmouseover="this.style.transform='scale(1.1)'" 
-                  onmouseout="this.style.transform='scale(1)'"
-                />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                  alt="Vue.js Logo" title="Vue.js"
+                  style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
               </div>
-              <a href="https://ipssoma.com/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver
-                proyecto</a>
+              <a href="https://ipssoma.com/" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card project-card">
-            <img
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              class="project-img" alt="Sistema de Reservas">
+            <img src="img/proyecto-wifi.webp" class="project-img" alt="Sistema de Reservas">
             <div class="project-body">
-              <h5 class="fw-bold">Sistema de Reservas Inteligente</h5>
-              <p class="text-white">Solución completa para gestión de citas con recordatorios automáticos, integración
-                de calendarios y análisis de datos.</p>
+              <h5 class="fw-bold">Sistema CMR para usuarios conectados a una red WIFI - Matriciano Polar</h5>
+              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispostivos
+                conectados.</p>
               <div class="project-tech">
-                <i class="devicon-angularjs-plain colored" title="Angular"></i>
-                <i class="devicon-firebase-plain colored" title="Firebase"></i>
-                <i class="devicon-typescript-plain colored" title="TypeScript"></i>
-                <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                  alt="Figma-logo" title="Figma"
+                  style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png"
+                  alt="Tailwind CSS" title="Tailwind CSS"
+                  style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
+                <i class="devicon-git-plain colored" title="Git"></i>
+                <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo"
+                  title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                  alt="Python Logo" title="Python"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 2px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
-              <a href="#" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver
-                proyecto</a>
+              <a href="https://github.com/dev-promolider/wifi" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
@@ -761,7 +955,6 @@
   <section id="contacto" class="section bg-dark">
     <div class="container">
       <h2 class="section-title text-center mb-5">Contacto</h2>
-
       <div class="contact-form">
         <form>
           <div class="row g-3">
@@ -795,17 +988,13 @@
   <footer class="text-white pt-5 pb-3">
     <div class="container">
       <div class="row g-4">
-
-        <!-- SOBRE MÍ -->
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Sobre Mí</h5>
             <p>Soy un desarrollador web apasionado por transformar ideas en productos digitales funcionales, modernos y
-              bien estructurados.</p>
+              bien estructuradas.</p>
           </div>
         </div>
-
-        <!-- CONTACTO -->
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Contacto</h5>
@@ -813,8 +1002,6 @@
             <p class="social-hover"><i class="bi bi-whatsapp me-2"></i>+51 904 652 881</p>
           </div>
         </div>
-
-        <!-- SÍGUEME -->
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Sígueme</h5>
@@ -824,9 +1011,7 @@
             </ul>
           </div>
         </div>
-
       </div>
-
       <hr class="bg-secondary mt-4" />
       <p class="text-center mb-0">Jesus Manuel Macalupu Estelo. Mi portafolio profesional. 2025</p>
     </div>
@@ -848,7 +1033,6 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function (e) {
         e.preventDefault();
-
         document.querySelector(this.getAttribute('href')).scrollIntoView({
           behavior: 'smooth'
         });
