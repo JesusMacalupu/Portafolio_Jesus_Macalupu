@@ -1,0 +1,1678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Portafolio Profesional</title>
+  <link rel="icon" href="img/personalizado.jpg" type="image/x-icon">
+  <meta name="description" content="Portafolio profesional de Jesus Macalupu, desarrollador web especializado en crear experiencias digitales innovadoras.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/devicon/devicon.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #0f1117;
+      --primary: #00f0ff;
+      --primary-dark: #00c4d1;
+      --accent: linear-gradient(135deg, #00f0ff, #002aff);
+      --glass: rgba(255, 255, 255, 0.08);
+      --white: #ffffff;
+      --light-gray: #f8f9fa;
+      --dark-gray: #6c757d;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--white);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+    }
+
+    .navbar {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(15, 17, 23, 0.95);
+    }
+
+    .navbar-brand {
+      font-weight: 600;
+      font-size: 1.5rem;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      margin: 0 0.5rem;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(15, 17, 23, 0.9), rgba(15, 17, 23, 0.7));
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      padding: 0.8rem 2.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: white;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      min-width: 180px;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+      color: white;
+    }
+
+    .btn-outline-light {
+      border: 2px solid var(--white);
+      padding: 0.8rem 2.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: var(--white);
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      min-width: 180px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-outline-light:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+      color: var(--white);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-cv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-top: 1.5rem;
+    }
+
+    .btn-cv i {
+      transition: all 0.3s ease;
+    }
+
+    .btn-cv:hover {
+      color: var(--primary);
+    }
+
+    .btn-cv:hover i {
+      transform: translateY(3px);
+    }
+
+    .section {
+      padding: 6rem 0;
+      position: relative;
+    }
+
+    .section.angled {
+      padding-top: 3rem;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 3rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--primary);
+    }
+
+    #sobre-mi .section-title::after {
+      left: 0;
+      width: 100%;
+    }
+
+    .angled {
+      position: relative;
+    }
+
+    .angled::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      background: var(--dark-bg);
+      clip-path: polygon(0 100%, 100% 0, 100% 100%, 0% 100%);
+      z-index: 1;
+    }
+
+    .about-container {
+      display: flex;
+      gap: 2rem;
+      align-items: stretch;
+      min-height: 500px;
+    }
+
+    .card-profile {
+      width: 30%;
+      padding: 40px 30px;
+      border-radius: 1rem;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-profile img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 50%;
+      border: 5px solid var(--white);
+      box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+      padding: 4px;
+      background-color: var(--white);
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -100px;
+    }
+
+    .card-profile h3 {
+      margin-top: 20px;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    .info-group {
+      text-align: left;
+      margin-top: 30px;
+      flex-grow: 1;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      color: var(--light-gray);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding-bottom: 10px;
+    }
+
+    .info-item i {
+      color: var(--primary);
+      margin-right: 12px;
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      margin-top: 25px;
+    }
+
+    .social-icons a {
+      width: 45px;
+      height: 45px;
+      line-height: 45px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      display: inline-block;
+      margin: 5px;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 1.2rem;
+    }
+
+    .social-icons a:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    }
+
+    .about-content {
+      width: 70%;
+      text-align: center;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card {
+      background-color: #12141c;
+      border: none;
+      border-radius: 15px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .project-body {
+      padding: 1.5rem;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .project-tech i {
+      font-size: 1.8rem;
+      transition: transform 0.3s ease;
+    }
+
+    .project-tech i:hover {
+      transform: scale(1.2);
+    }
+
+    .project-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    .project-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+      color: white;
+    }
+
+    .carousel-item {
+      padding: 2rem 0;
+    }
+
+    .tech-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+
+    .tech-item i,
+    .tech-item img {
+      font-size: 3.5rem;
+      height: 3.5rem;
+      width: auto;
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+
+    .tech-item img {
+      margin: 0 1rem;
+    }
+
+    .tech-item i:hover,
+    .tech-item img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-control-prev i,
+    .carousel-control-next i {
+      font-size: 3rem;
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-control-prev i:hover,
+    .carousel-control-next i:hover {
+      transform: scale(1.2);
+    }
+
+    .carousel-indicators {
+      bottom: -50px;
+    }
+
+    .carousel-indicators [data-bs-target] {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-image: var(--accent);
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .carousel-indicators .active {
+      opacity: 1;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: var(--glass);
+      padding: 2.5rem;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-label {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.25rem rgba(0, 240, 255, 0.25);
+      color: var(--white);
+    }
+
+    footer {
+      background-color: #0a0c10;
+      color: var(--white);
+      padding: 3rem 0;
+      position: relative;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links a {
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    .footer-title {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-weight: 700;
+    }
+
+    .social-hover {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding-left: 0.5rem;
+      border-left: 3px solid transparent;
+    }
+
+    .social-hover:hover {
+      color: #00f0ff;
+      transform: translateX(5px);
+      border-left: 3px solid #00f0ff;
+      text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+    }
+
+    .achievement-card {
+      background: linear-gradient(145deg, rgba(18, 20, 28, 0.95), rgba(30, 35, 50, 0.95));
+      border: none;
+      border-radius: 15px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 220px;
+      backdrop-filter: blur(10px);
+    }
+
+    .achievement-img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 15px 0 0 15px;
+    }
+
+    .achievement-body {
+      padding: 1.5rem;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .achievement-type {
+      display: inline-block;
+      vertical-align: middle;
+      background: var(--accent);
+      color: black;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 240, 255, 0.3);
+      width: fit-content;
+    }
+
+    .achievement-type-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-type-icon {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-left: 8px;
+      transform: translateY(-3.2px);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-type-icon:hover {
+      transform: scale(1.1) translateY(-3.2px);
+    }
+
+    .achievement-body h5 {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .achievement-body p.description {
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .achievement-body p.issuer {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    .filter-dropdown .btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-dropdown .btn:hover,
+    .filter-dropdown .btn.active {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    .filter-dropdown .dropdown-menu {
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+
+    .filter-dropdown .dropdown-item {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .filter-dropdown .dropdown-item:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .achievement-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.75rem;
+      width: fit-content;
+      box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+    }
+
+    .achievement-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+      color: white;
+    }
+
+    .more-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 991px) {
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+      }
+
+      .card-profile,
+      .about-content {
+        width: 100%;
+        max-width: 600px;
+      }
+
+      .card-profile {
+        margin-bottom: 2rem;
+      }
+
+      .tech-item i,
+      .tech-item img {
+        font-size: 2.8rem;
+        height: 2.8rem;
+      }
+
+      .achievement-card {
+        flex-direction: row;
+        min-height: auto;
+      }
+
+      .achievement-img {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 15px 0 0 15px;
+      }
+
+      .achievement-body {
+        width: 50%;
+        padding: 1.2rem;
+      }
+
+      .filter-buttons {
+        flex-wrap: nowrap;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      .filter-btn,
+      .filter-dropdown .btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section.angled {
+        padding-top: 2rem;
+      }
+
+      .section-title {
+        margin-bottom: 2rem;
+      }
+
+      .contact-form {
+        padding: 1.5rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-outline-light {
+        width: 100%;
+      }
+
+      .footer-box {
+        text-align: center;
+      }
+
+      .social-hover {
+        justify-content: center;
+        padding-left: 0;
+        border-left: none;
+      }
+
+      .social-hover:hover {
+        border-left: none;
+        transform: scale(1.05);
+      }
+
+      .tech-item i,
+      .tech-item img {
+        font-size: 2.2rem;
+        height: 2.2rem;
+      }
+
+      .tech-item img {
+        margin: 0 0.5rem;
+      }
+
+      .carousel-item .row {
+        justify-content: space-around;
+      }
+
+      .carousel-item .col-2 {
+        flex: 0 0 18%;
+        max-width: 18%;
+      }
+
+      .carousel-control-prev,
+      .carousel-control-next {
+        display: none;
+      }
+
+      .filter-buttons {
+        flex-direction: row;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+
+      .filter-btn,
+      .filter-dropdown .btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .more-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .more-buttons .btn-outline-light {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .achievement-card {
+        flex-direction: row;
+        margin-bottom: 1.5rem;
+      }
+
+      .achievement-img {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 15px 0 0 15px;
+      }
+
+      .achievement-body {
+        width: 50%;
+        padding: 1rem;
+      }
+
+      .achievement-body h5 {
+        font-size: 1rem;
+      }
+
+      .achievement-body p.description {
+        font-size: 0.75rem;
+      }
+
+      .achievement-body p.issuer {
+        font-size: 0.7rem;
+      }
+
+      .achievement-type {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+      }
+
+      .achievement-type-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 6px;
+        transform: translateY(-3.2px);
+      }
+
+      .achievement-type-icon:hover {
+        transform: scale(1.1) translateY(-3.2px);
+      }
+
+      .achievement-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Mi Portafolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#logros-certificaciones">Logros y Certificaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="inicio" class="hero">
+    <div class="container hero-content">
+      <br><br>
+      <h1>Jesus Manuel Macalupu Estelo</h1>
+      <p class="lead"><strong>Ingeniero de Sistemas</strong></p>
+      <p class="lead">Hola, Soy Desarrollador web especializado en crear soluciones innovadoras y creativas, centradas en el usuario.</p>
+      <div class="hero-buttons">
+        <a href="#proyectos" class="btn-outline-light">Ver proyectos</a>
+        <a href="#contacto" class="btn-primary">Contactar</a>
+      </div>
+      <a href="#" class="btn-cv">
+        <span>Descargar CV</span>
+        <i class="bi bi-download"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="sobre-mi" class="section">
+    <br>
+    <div class="container">
+      <div class="about-container">
+        <div class="card-profile">
+          <img src="img/Carnet.png" alt="Foto de perfil">
+          <h3>Jesus Manuel Macalupu Estelo</h3>
+          <div class="info-group">
+            <div class="info-item"><i class="fas fa-graduation-cap"></i> Ingeniería de Sistemas</div>
+            <div class="info-item"><i class="fas fa-university"></i> Universidad Autónoma del Perú</div>
+            <div class="info-item"><i class="fas fa-cake-candles"></i> 21 años</div>
+            <div class="info-item"><i class="fas fa-location-dot"></i> Perú, Lima, Villa el Salvador</div>
+            <div class="info-item"><i class="fas fa-envelope"></i> manuelestelo23@gmail.com</div>
+            <div class="info-item"><i class="fas fa-phone"></i> +51 904 652 881</div>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://github.com/JesusMacalupu" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales." target="_blank">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="https://wa.me/51904652881" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div class="about-content">
+          <h2 class="section-title">Sobre Mí</h2>
+          <div>
+            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4 meses de experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque UI/UX para lograr soluciones efectivas y bien estructuradas.</p>
+            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre al día con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
+            <h4 class="mb-4">Habilidades Técnicas</h4>
+            <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <i class="devicon-html5-plain colored" title="HTML5"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-css3-plain colored" title="CSS3"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-typescript-plain colored" title="TypeScript"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png" alt="Tailwind CSS Logo" title="Tailwind CSS">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo" title="Python">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" alt="Figma Logo" title="Figma">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue.js Logo" title="Vue.js">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js">
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-mysql-plain colored" title="MySQL"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                  <div class="container">
+                    <div class="row justify-content-center">
+                      <div class="col-2 tech-item">
+                        <i class="devicon-git-plain colored" title="Git"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-php-plain colored" title="PHP"></i>
+                      </div>
+                      <div class="col-2 tech-item">
+                        <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#techCarousel" data-bs-slide="prev">
+                <i class="bi bi-caret-left" aria-hidden="true"></i>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#techCarousel" data-bs-slide="next">
+                <i class="bi bi-caret-right" aria-hidden="true"></i>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements and Certifications Section -->
+  <section id="logros-certificaciones" class="section angled">
+    <div class="container">
+      <h2 class="section-title text-center">Logros y Certificaciones</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="logro">Mis Logros</button>
+        <button class="filter-btn" data-filter="certificacion">Mis Certificaciones</button>
+        <div class="filter-dropdown dropdown">
+          <button class="btn dropdown-toggle" type="button" id="yearFilter" data-bs-toggle="dropdown" aria-expanded="false">
+            Filtrar
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="yearFilter">
+            <li><a class="dropdown-item" href="#" data-filter-year="all">Todos los años</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2021">2021</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2022">2022</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2023">2023</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2024">2024</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2025">2025</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row g-4" id="achievements-container">
+        <!-- Logros -->
+        
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - JAVA PROGRAMMING.webp" class="achievement-img" alt="logro-java-programming">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: JAVA PROGRAMMING</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar cada uno de los requisitos como Java Programming.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905215CPCB12.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - DATABASE DESIGN AND PROGRAMMING WITH SQL.webp" class="achievement-img" alt="certificación-database-design">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: DATABASE DESIGN AND PROGRAMMING WITH SQL</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los requisitos como DATABASE DESIGN AND PROGRAMMING WITH SQL.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905222CPF620.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - ADMINISTRADOR DE REDES Y COMUNICACIONES.webp" class="achievement-img" alt="Ponente en Conferencia">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: ADMINISTRADOR DE REDES Y COMUNICACIONES</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los requisitos como ADMINISTRADOR DE REDES Y COMUNICACIONES.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2024</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20240123122CP7C8B.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - HABILIDADES DIGITALES.webp" class="achievement-img" alt="logro-habilidades-digitales">
+            <div class="achievement-body">
+              <h5 class="fw-bold">HABILIDADES DIGITALES</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Habilidades Digitales, realizado por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220704201197925.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2023">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - INTELIGENCIA EMOCIONAL.webp" class="achievement-img" alt="logro-inteligencia-emocional">
+            <div class="achievement-body">
+              <h5 class="fw-bold">INTELIGENCIA EMOCIONAL: PERCIBE, MANEJA, COMPRENDE Y UTILIZA LAS EMOCIONES</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Inteligencia Emocional: Percibe, Maneja, Comprende y Utiliza las emociones, realizado por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2023</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2023022711516EAF7.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - SCRUM Y KANBAN.webp" class="achievement-img" alt="logro-scrum-kanban">
+            <div class="achievement-body">
+              <h5 class="fw-bold">SCRUM Y KANBAN</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Scrum y Kanban, realizado por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2024</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2024110619514635B.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - Hoja menbretada de practicas.webp" class="achievement-img" alt="hoja-membreteada-practicas">
+            <div class="achievement-body">
+              <h5 class="fw-bold">PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
+              <p class="description">Certificación otorgada por la empresa Promolíder ORG por realizar prácticas pre profesionales por 4 meses (480 horas). El proyecto realizado fue un “Sistema de Gestión para CMR para usuarios conectados a una red WIFI”.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeEANFziz9eviIHZ3gSqcKNJXWhqof3OhFhw&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Promolíder ORG: Prácticas Pre Profesionales - 2025</p>
+              <a href="https://drive.google.com/file/d/1Zj3_hP_GTQ9oT3pzaxFcLJeiLQ0SE8bb/view?usp=sharing" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - Constancia de practicas profesinales.webp" class="achievement-img" alt="constancia-practicas-profesionales">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CONSTANCIA DE PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
+              <p class="description">Constancia otorgada por la empresa Promolíder ORG por cumplir satisfactoriamente con todas las tareas y proyectos asignados en el área de Desarrollo Web.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6y3Xhzl79plf-lqRW4l9gHh2W-MyqTxK-sA&s" class="achievement-type-icon" alt="Achievement Icon">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeEANFziz9eviIHZ3gSqcKNJXWhqof3OhFhw&s" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Promolíder ORG: Prácticas Pre Profesionales - 2025</p>
+              <a href="https://drive.google.com/file/d/1NuWeTAtTIenD3SHpTTcugbRG5fQOv3J7/view?usp=sharing" target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificaciones -->
+        <!-- Certificado de Desarrollo Front-End -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-frontend.jpg" class="achievement-img" alt="Certificado de Desarrollo Front-End">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Desarrollo Front-End</h5>
+              <p class="description">Completé un curso intensivo en desarrollo front-end, dominando HTML, CSS, JavaScript y frameworks modernos como Vue.js.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Udemy - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de Programación en Python -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-python.jpg" class="achievement-img" alt="Certificado de Python">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Programación en Python</h5>
+              <p class="description">Obtuve una certificación en Python, enfocada en desarrollo backend y automatización de procesos.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Coursera - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de Desarrollo con Node.js -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-nodejs.jpg" class="achievement-img" alt="Certificado de Node.js">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Desarrollo con Node.js</h5>
+              <p class="description">Certificación en desarrollo backend con Node.js, enfocada en APIs y microservicios.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Pluralsight - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de Diseño UX/UI -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-ux.jpg" class="achievement-img" alt="Certificado de Diseño UX/UI">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Diseño UX/UI</h5>
+              <p class="description">Completé un curso de diseño UX/UI, aprendiendo a crear interfaces centradas en el usuario con Figma.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Interaction Design Foundation - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de Bases de Datos SQL -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-sql.jpg" class="achievement-img" alt="Certificado de SQL">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Bases de Datos SQL</h5>
+              <p class="description">Certificación en gestión de bases de datos SQL, enfocada en MySQL y SQL Server.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Coursera - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de JavaScript Avanzado -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-javascript.jpg" class="achievement-img" alt="Certificado de JavaScript Avanzado">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de JavaScript Avanzado</h5>
+              <p class="description">Certificación en técnicas avanzadas de JavaScript, incluyendo ES6+, async/await y patrones de diseño.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">FreeCodeCamp - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+        <!-- Certificado de Desarrollo con React -->
+        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/certificado-react.jpg" class="achievement-img" alt="Certificado de React">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Certificado de Desarrollo con React</h5>
+              <p class="description">Completé un curso intensivo en React, dominando componentes, hooks y gestión de estado con Redux.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+              </div>
+              <p class="issuer">Udemy - 2024</p>
+              <a href="#" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="more-buttons">
+        <a href="#" class="btn btn-outline-light" id="more-logros">Ver todos mis logros</a>
+        <a href="#" class="btn btn-outline-light" id="more-certificaciones">Ver todas las certificaciones</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="proyectos" class="section angled">
+    <div class="container">
+      <h2 class="section-title text-center">Proyectos Destacados</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="img/proyecto-promolider.webp" class="project-img" alt="Pagina Web de Promolíder ORG">
+            <div class="project-body">
+              <h5 class="fw-bold">Página Web de Promolíder ORG</h5>
+              <p class="text-white">Sitio web responsive para Promolíder ORG, plataforma que conecta productores y distribuidores de cursos digitales para monetizar el conocimiento.</p>
+              <div class="project-tech">
+                <i class="devicon-html5-plain colored" title="HTML5"></i>
+                <i class="devicon-css3-plain colored" title="CSS3"></i>
+                <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                <i class="devicon-bootstrap-plain colored" title="Bootstrap"></i>
+                <i class="devicon-mysql-plain colored" title="MySQL"></i>
+                <i class="devicon-git-plain colored" title="Git"></i>
+                <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+              </div>
+              <a href="https://promolider.org/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="img/proyecto-ipssoma.webp" class="project-img" alt="SEO en la Página Web de IPSSOMA">
+            <div class="project-body">
+              <h5 class="fw-bold">SEO en la Página Web de IPSSOMA</h5>
+              <p class="text-white">Optimización SEO para IPSSOMA, plataforma educativa en Seguridad, Medio Ambiente y Calidad. Se mejoró el posicionamiento y la estructura del contenido.</p>
+              <div class="project-tech">
+                <i class="devicon-html5-plain colored" title="HTML5"></i>
+                <i class="devicon-css3-plain colored" title="CSS3"></i>
+                <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue.js Logo" title="Vue.js" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <i class="devicon-git-plain colored" title="Git"></i>
+                <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+              </div>
+              <a href="https://ipssoma.com/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card">
+            <img src="img/proyecto-wifi.webp" class="project-img" alt="Sistema de Reservas">
+            <div class="project-body">
+              <h5 class="fw-bold">Sistema CMR para usuarios conectados a una red WIFI - Matriciano Polar</h5>
+              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispositivos conectados.</p>
+              <div class="project-tech">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" alt="Figma-logo" title="Figma" style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png" alt="Tailwind CSS" title="Tailwind CSS" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <i class="devicon-javascript-plain colored" title="JavaScript"></i>
+                <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
+                <i class="devicon-git-plain colored" title="Git"></i>
+                <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo" title="Python" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 2px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+              </div>
+              <a href="https://github.com/dev-promolider/wifi" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <a href="#" class="btn btn-outline-light">Ver todos los proyectos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contacto" class="section bg-dark">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Contacto</h2>
+      <div class="contact-form">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="nombre" class="form-label">Nombre completo</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+            </div>
+            <div class="col-md-6">
+              <label for="telefono" class="form-label">Teléfono</label>
+              <input type="tel" class="form-control" id="telefono" inputmode="numeric" pattern="\d{7,15}" placeholder="Ingresa tu teléfono" required>
+            </div>
+            <div class="col-12">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
+            </div>
+            <div class="col-12">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje" rows="5" placeholder="Describe tu proyecto o consulta..." required></textarea>
+            </div>
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-white pt-5 pb-3">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="footer-box h-100 p-3">
+            <h5 class="footer-title mb-3">Sobre Mí</h5>
+            <p>Soy un desarrollador web apasionado por transformar ideas en productos digitales funcionales, modernos y bien estructuradas.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-box h-100 p-3">
+            <h5 class="footer-title mb-3">Contacto</h5>
+            <p class="social-hover" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales.', '_blank')">
+              <i class="bi bi-envelope me-2"></i>manuelestelo23@gmail.com
+            </p>
+            <p class="social-hover" onclick="window.open('https://wa.me/51904652881', '_blank')">
+              <i class="bi bi-whatsapp me-2"></i>+51 904 652 881
+            </p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-box h-100 p-3">
+            <h5 class="footer-title mb-3">Sígueme</h5>
+            <ul class="list-unstyled d-flex flex-column gap-3">
+              <li class="social-hover" onclick="window.open('https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/', '_blank')"><i class="bi bi-linkedin me-2"></i>LinkedIn</li>
+              <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i class="bi bi-github me-2"></i>GitHub</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-secondary mt-4" />
+      <p class="text-center mb-0">Jesus Manuel Macalupu Estelo. Mi portafolio profesional. 2025</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function () {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Filter functionality for achievements and certifications
+    let currentCategory = 'logro';
+    let currentYear = 'all';
+
+    function applyFilters() {
+      const items = document.querySelectorAll('.achievement-item');
+      const moreLogrosBtn = document.querySelector('#more-logros');
+      const moreCertificacionesBtn = document.querySelector('#more-certificaciones');
+      let logroCount = 0;
+      let certificacionCount = 0;
+
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        const year = item.getAttribute('data-year');
+        const isVisible = (currentCategory === 'all' || category === currentCategory) &&
+                          (currentYear === 'all' || year === currentYear);
+
+        if (isVisible) {
+          if (category === 'logro' && logroCount < 4) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+            logroCount++;
+          } else if (category === 'certificacion' && certificacionCount < 4) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+            certificacionCount++;
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+
+      moreLogrosBtn.style.display = currentCategory === 'logro' && logroCount >= 4 ? 'block' : 'none';
+      moreCertificacionesBtn.style.display = currentCategory === 'certificacion' && certificacionCount >= 4 ? 'block' : 'none';
+    }
+
+    // Category filter buttons
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        currentCategory = this.getAttribute('data-filter');
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        applyFilters();
+      });
+    });
+
+    // Year filter dropdown
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        currentYear = this.getAttribute('data-filter-year');
+        document.querySelector('#yearFilter').textContent = currentYear === 'all' ? 'Filtrar' : currentYear;
+        applyFilters();
+      });
+    });
+
+    // More buttons functionality
+    document.querySelector('#more-logros').addEventListener('click', function (e) {
+      e.preventDefault();
+      currentCategory = 'logro';
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="logro"]').classList.add('active');
+      const items = document.querySelectorAll('.achievement-item[data-category="logro"]');
+      items.forEach(item => {
+        if (currentYear === 'all' || item.getAttribute('data-year') === currentYear) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 50);
+        }
+      });
+      this.style.display = 'none';
+    });
+
+    document.querySelector('#more-certificaciones').addEventListener('click', function (e) {
+      e.preventDefault();
+      currentCategory = 'certificacion';
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="certificacion"]').classList.add('active');
+      const items = document.querySelectorAll('.achievement-item[data-category="certificacion"]');
+      items.forEach(item => {
+        if (currentYear === 'all' || item.getAttribute('data-year') === currentYear) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 50);
+        }
+      });
+      this.style.display = 'none';
+    });
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+      applyFilters();
+    });
+  </script>
+</body>
+</html>
