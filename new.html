@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mi Portafolio Profesional</title>
   <link rel="icon" href="img/personalizado.jpg" type="image/x-icon">
-  <meta name="description" content="Portafolio profesional de Jesus Macalupu, desarrollador web especializado en crear experiencias digitales innovadoras.">
+  <meta name="description"
+    content="Portafolio profesional de Jesus Macalupu, desarrollador web especializado en crear experiencias digitales innovadoras.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/devicon/devicon.min.css" rel="stylesheet">
@@ -35,7 +37,12 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: 600;
     }
 
@@ -980,8 +987,89 @@
         font-size: 0.8rem;
       }
     }
+
+    /* Diseño vertical solo para certificaciones - cards verticales */
+    .achievement-card.vertical-cert {
+      flex-direction: column !important;
+      min-height: auto;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .achievement-card.vertical-cert .achievement-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 15px 15px 0 0 !important;
+      background-color: #1a1d27;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block;
+
+    }
+
+    /* Elimina espacios fantasma causados por elementos inline */
+    .achievement-card.vertical-cert {
+      line-height: 0;
+      font-size: 0;
+    }
+
+    /* Restaura el tamaño normal solo en el cuerpo del texto */
+    .achievement-card.vertical-cert .achievement-body {
+      line-height: 1.6;
+      font-size: initial;
+    }
+
+    .achievement-card.vertical-cert .achievement-body {
+      width: 100%;
+      padding: 2rem 1.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(18, 20, 28, 0.95), rgba(30, 35, 50, 0.95));
+    }
+
+    .achievement-card.vertical-cert .achievement-type-container {
+      justify-content: center;
+      margin-bottom: 1rem;
+      gap: 0.8rem;
+    }
+
+    .achievement-card.vertical-cert .achievement-btn {
+      margin-top: 1rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 992px) {
+      .achievement-card.vertical-cert .achievement-img {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .achievement-card.vertical-cert .achievement-img {
+        height: 220px;
+      }
+
+      .achievement-card.vertical-cert .achievement-body {
+        padding: 1.8rem 1rem 2.2rem;
+      }
+
+      .achievement-card.vertical-cert h5 {
+        font-size: 1.1rem;
+      }
+
+      .achievement-card.vertical-cert .description {
+        font-size: 0.85rem;
+      }
+    }
   </style>
 </head>
+
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
@@ -1008,12 +1096,14 @@
       <br><br>
       <h1>Jesus Manuel Macalupu Estelo</h1>
       <p class="lead"><strong>Ingeniero de Sistemas</strong></p>
-      <p class="lead">Hola, Soy Desarrollador web especializado en crear soluciones innovadoras y creativas, centradas en el usuario.</p>
+      <p class="lead">Hola, Soy Desarrollador web especializado en crear soluciones innovadoras y creativas, centradas
+        en el usuario.</p>
       <div class="hero-buttons">
         <a href="#proyectos" class="btn-outline-light">Ver proyectos</a>
         <a href="#contacto" class="btn-primary">Contactar</a>
       </div>
-      <a href="https://drive.google.com/file/d/1lE3ecCmAS8aOe6bbQj2FGIl7SgV1OV9k/view?usp=sharing" target="_blank" class="btn-cv">
+      <a href="https://drive.google.com/file/d/1lE3ecCmAS8aOe6bbQj2FGIl7SgV1OV9k/view?usp=sharing" target="_blank"
+        class="btn-cv">
         <span>Descargar CV</span>
         <i class="bi bi-download"></i>
       </a>
@@ -1037,9 +1127,11 @@
             <div class="info-item"><i class="fas fa-phone"></i> +51 904 652 881</div>
           </div>
           <div class="social-icons">
-            <a href="https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/JesusMacalupu" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales." target="_blank">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales."
+              target="_blank">
               <i class="fab fa-google"></i>
             </a>
             <a href="https://wa.me/51904652881" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -1048,12 +1140,16 @@
         <div class="about-content">
           <h2 class="section-title">Sobre Mí</h2>
           <div>
-            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4 meses de experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque UI/UX para lograr soluciones efectivas y bien estructuradas.</p>
-            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre al día con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
+            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4
+              meses de experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque
+              UI/UX para lograr soluciones efectivas y bien estructuradas.</p>
+            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre
+              al día con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
             <h4 class="mb-4">Habilidades Técnicas</h4>
             <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
               <div class="carousel-indicators">
-                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
                 <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 <button type="button" data-bs-target="#techCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
               </div>
@@ -1074,7 +1170,8 @@
                         <i class="devicon-typescript-plain colored" title="TypeScript"></i>
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png" alt="Tailwind CSS Logo" title="Tailwind CSS">
+                        <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png"
+                          alt="Tailwind CSS Logo" title="Tailwind CSS">
                       </div>
                     </div>
                   </div>
@@ -1083,16 +1180,23 @@
                   <div class="container">
                     <div class="row justify-content-center">
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo" title="Python">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                          alt="Python Logo" title="Python">
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" alt="Figma Logo" title="Figma">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                          alt="Figma Logo" title="Figma">
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue.js Logo" title="Vue.js">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                          alt="Vue.js Logo" title="Vue.js">
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js">
+                        <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                          alt="Node.js Logo" title="Node.js">
                       </div>
                       <div class="col-2 tech-item">
                         <i class="devicon-mysql-plain colored" title="MySQL"></i>
@@ -1145,7 +1249,8 @@
         <button class="filter-btn active" data-filter="logro">Mis Logros</button>
         <button class="filter-btn" data-filter="certificacion">Mis Certificaciones</button>
         <div class="filter-dropdown dropdown">
-          <button class="btn dropdown-toggle" type="button" id="yearFilter" data-bs-toggle="dropdown" aria-expanded="false">
+          <button class="btn dropdown-toggle" type="button" id="yearFilter" data-bs-toggle="dropdown"
+            aria-expanded="false">
             Filtrar
           </button>
           <ul class="dropdown-menu" aria-labelledby="yearFilter">
@@ -1167,127 +1272,149 @@
             <img src="img/logros/diploma honor.webp" class="achievement-img" alt="logro-java-programming">
             <div class="achievement-body">
               <h5 class="fw-bold">DIPLOMA DE HONOR AL MÉRITO PRIMER PUESTO: CICLO IX</h5>
-              <p class="description">Por haber ocupado el primer puesto en el ciclo IX de la Carrera Profesional de Ingeniería de Sistemas en el semestre académico 2025-01.</p>
+              <p class="description">Por haber ocupado el primer puesto en el ciclo IX de la Carrera Profesional de
+                Ingeniería de Sistemas en el semestre académico 2025-01.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2025</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W202509081611B2774.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W202509081611B2774.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
           <div class="card achievement-card">
-            <img src="img/logros/logro - Hoja menbretada de practicas.webp" class="achievement-img" alt="hoja-membreteada-practicas">
+            <img src="img/logros/logro - Hoja menbretada de practicas.webp" class="achievement-img"
+              alt="hoja-membreteada-practicas">
             <div class="achievement-body">
               <h5 class="fw-bold">PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
-              <p class="description">Certificación otorgada por realizar prácticas por 4 meses (480 horas). El proyecto realizado fue un “Sistema de Gestión para CMR para usuarios conectados a una red WIFI”.</p>
+              <p class="description">Certificación otorgada por realizar prácticas por 4 meses (480 horas). El proyecto
+                realizado fue un “Sistema de Gestión para CMR para usuarios conectados a una red WIFI”.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
                 <img src="img/empresa-practicas.jfif" class="achievement-type-icon-empresa" alt="Achievement Icon">
               </div>
               <p class="issuer">Promolíder ORG: Prácticas Pre Profesionales - 2025</p>
-              <a href="https://drive.google.com/file/d/1Zj3_hP_GTQ9oT3pzaxFcLJeiLQ0SE8bb/view?usp=sharing" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://drive.google.com/file/d/1Zj3_hP_GTQ9oT3pzaxFcLJeiLQ0SE8bb/view?usp=sharing"
+                target="_blank" class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
           <div class="card achievement-card">
-            <img src="img/logros/logro - Constancia de practicas profesinales.webp" class="achievement-img" alt="constancia-practicas-profesionales">
+            <img src="img/logros/logro - Constancia de practicas profesinales.webp" class="achievement-img"
+              alt="constancia-practicas-profesionales">
             <div class="achievement-body">
               <h5 class="fw-bold">CONSTANCIA DE PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
-              <p class="description">Constancia otorgada por cumplir satisfactoriamente con todas las tareas y proyectos asignados en el área de Desarrollo Web.</p>
+              <p class="description">Constancia otorgada por cumplir satisfactoriamente con todas las tareas y proyectos
+                asignados en el área de Desarrollo Web.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
                 <img src="img/empresa-practicas.jfif" class="achievement-type-icon-empresa" alt="Achievement Icon">
               </div>
               <p class="issuer">Promlíder ORG: Prácticas Pre Profesionales - 2025</p>
-              <a href="https://drive.google.com/file/d/1NuWeTAtTIenD3SHpTTcugbRG5fQOv3J7/view?usp=sharing" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://drive.google.com/file/d/1NuWeTAtTIenD3SHpTTcugbRG5fQOv3J7/view?usp=sharing"
+                target="_blank" class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
           <div class="card achievement-card">
             <img src="img/logros/logro - JAVA PROGRAMMING.webp" class="achievement-img" alt="logro-java-programming">
             <div class="achievement-body">
               <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: JAVA PROGRAMMING</h5>
-              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar cada uno de los requisitos como Java Programming.</p>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar cada uno de
+                los requisitos como Java Programming.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2022</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905215CPCB12.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905215CPCB12.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
           <div class="card achievement-card">
-            <img src="img/logros/logro - DATABASE DESIGN AND PROGRAMMING WITH SQL.webp" class="achievement-img" alt="certificación-database-design">
+            <img src="img/logros/logro - DATABASE DESIGN AND PROGRAMMING WITH SQL.webp" class="achievement-img"
+              alt="certificación-database-design">
             <div class="achievement-body">
               <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: DATABASE DESIGN AND PROGRAMMING WITH SQL</h5>
-              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los requisitos como DATABASE DESIGN AND PROGRAMMING WITH SQL.</p>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los
+                requisitos como DATABASE DESIGN AND PROGRAMMING WITH SQL.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2022</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905222CPF620.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905222CPF620.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2024">
           <div class="card achievement-card">
-            <img src="img/logros/logro - ADMINISTRADOR DE REDES Y COMUNICACIONES.webp" class="achievement-img" alt="Ponente en Conferencia">
+            <img src="img/logros/logro - ADMINISTRADOR DE REDES Y COMUNICACIONES.webp" class="achievement-img"
+              alt="Ponente en Conferencia">
             <div class="achievement-body">
               <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: ADMINISTRADOR DE REDES Y COMUNICACIONES</h5>
-              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los requisitos como ADMINISTRADOR DE REDES Y COMUNICACIONES.</p>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los
+                requisitos como ADMINISTRADOR DE REDES Y COMUNICACIONES.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2024</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20240123122CP7C8B.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20240123122CP7C8B.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
-        
+
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
           <div class="card achievement-card">
-            <img src="img/logros/logro - HABILIDADES DIGITALES.webp" class="achievement-img" alt="logro-habilidades-digitales">
+            <img src="img/logros/logro - HABILIDADES DIGITALES.webp" class="achievement-img"
+              alt="logro-habilidades-digitales">
             <div class="achievement-body">
               <h5 class="fw-bold">HABILIDADES DIGITALES</h5>
-              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Habilidades Digitales, realizado por la Dirección de Educación Continua UA.</p>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Habilidades Digitales,
+                realizado por la Dirección de Educación Continua UA.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2022</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220704201197925.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220704201197925.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
 
         <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2023">
           <div class="card achievement-card">
-            <img src="img/logros/logro - INTELIGENCIA EMOCIONAL.webp" class="achievement-img" alt="logro-inteligencia-emocional">
+            <img src="img/logros/logro - INTELIGENCIA EMOCIONAL.webp" class="achievement-img"
+              alt="logro-inteligencia-emocional">
             <div class="achievement-body">
               <h5 class="fw-bold">INTELIGENCIA EMOCIONAL: PERCIBE, MANEJA, COMPRENDE Y UTILIZA LAS EMOCIONES</h5>
-              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de I.E. : Percibe, Maneja, Comprende y Utiliza las emociones, realizado por la Dirección de Educación Continua UA.</p>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de I.E. : Percibe, Maneja,
+                Comprende y Utiliza las emociones, realizado por la Dirección de Educación Continua UA.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2023</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2023022711516EAF7.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2023022711516EAF7.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
@@ -1297,56 +1424,76 @@
             <img src="img/logros/logro - SCRUM Y KANBAN.webp" class="achievement-img" alt="logro-scrum-kanban">
             <div class="achievement-body">
               <h5 class="fw-bold">SCRUM Y KANBAN</h5>
-              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Scrum y Kanban, realizado por la Dirección de Educación Continua UA.</p>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Scrum y Kanban, realizado
+                por la Dirección de Educación Continua UA.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Logro</span>
                 <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
               </div>
               <p class="issuer">Universidad Autónoma Perú - 2024</p>
-              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2024110619514635B.pdf" target="_blank" class="achievement-btn">Ver logro</a>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2024110619514635B.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
             </div>
           </div>
         </div>
 
         <!-- Certificaciones -->
-        <!-- Certificado de Desarrollo Front-End -->
-        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
-          <div class="card achievement-card">
-            <img src="img/certificado-frontend.jpg" class="achievement-img" alt="Certificado de Desarrollo Front-End">
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/javascriptCisco.webp" class="achievement-img"
+              alt="JavaScript Essentials 1">
             <div class="achievement-body">
-              <h5 class="fw-bold">Certificado de Desarrollo Front-End</h5>
-              <p class="description">Completé un curso intensivo en desarrollo front-end, dominando HTML, CSS, JavaScript y frameworks modernos como Vue.js.</p>
+              <h5 class="fw-bold">JavaScript Essentials 1</h5>
+              <p class="description">Offered by Networking Academy through the Cisco Networking Academy program.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Certificación</span>
-                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon" style="margin-left:-4px;" alt="Certification Icon">
               </div>
-              <p class="issuer">Udemy - 2024</p>
-              <a href="#" class="achievement-btn">Ver certificado</a>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1am8VNWhDc-hOpJ2fUPiys9rMmK9hv8JF/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
             </div>
           </div>
         </div>
-        <!-- Certificado de Programación en Python -->
-        <div class="col-lg-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
-          <div class="card achievement-card">
-            <img src="img/certificado-python.jpg" class="achievement-img" alt="Certificado de Python">
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/SO-Cisco.webp" class="achievement-img" alt="Operating Systems Basics">
             <div class="achievement-body">
-              <h5 class="fw-bold">Certificado de Programación en Python</h5>
-              <p class="description">Obtuve una certificación en Python, enfocada en desarrollo backend y automatización de procesos.</p>
+              <h5 class="fw-bold">Operating Systems Basics</h5>
+              <p class="description">Offered by Networking Academy through the Cisco Networking Academy program.</p>
               <div class="achievement-type-container">
                 <span class="achievement-type">Certificación</span>
-                <img src="img/small-icon.png" class="achievement-type-icon" alt="Certification Icon">
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon" style="margin-left:-4px;" alt="Certification Icon">
               </div>
-              <p class="issuer">Coursera - 2024</p>
-              <a href="#" class="achievement-btn">Ver certificado</a>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1n3CMFQK7tTqSGZMRhxdXdmNkmVpMoHSM/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
             </div>
           </div>
         </div>
-        
-      <div class="more-buttons">
-        <a href="#" class="btn btn-outline-light" id="more-logros">Ver todos mis logros</a>
-        <a href="#" class="btn btn-outline-light" id="more-certificaciones" style="display: none;">Ver todas las certificaciones</a>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/hackerEtico.webp" class="achievement-img" alt="Hacker ético">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Hacker ético</h5>
+              <p class="description">Ofrecido por Networking Academy a través del programa Cisco Networking Academy.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1uqMbI1_irYSbdIdDxDKzJwlxMYGypFAz/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-buttons">
+          <a href="#" class="btn btn-outline-light" id="more-logros">Ver todos mis logros</a>
+          <a href="#" class="btn btn-outline-light" id="more-certificaciones" style="display: none;">Ver todas las
+            certificaciones</a>
+        </div>
       </div>
-    </div>
   </section>
 
   <!-- Projects Section -->
@@ -1359,7 +1506,8 @@
             <img src="img/proyecto-promolider.webp" class="project-img" alt="Pagina Web de Promolíder ORG">
             <div class="project-body">
               <h5 class="fw-bold">Página Web de Promolíder ORG</h5>
-              <p class="text-white">Sitio web responsive para Promolíder ORG, plataforma que conecta productores y distribuidores de cursos digitales para monetizar el conocimiento.</p>
+              <p class="text-white">Sitio web responsive para Promolíder ORG, plataforma que conecta productores y
+                distribuidores de cursos digitales para monetizar el conocimiento.</p>
               <div class="project-tech">
                 <i class="devicon-html5-plain colored" title="HTML5"></i>
                 <i class="devicon-css3-plain colored" title="CSS3"></i>
@@ -1368,9 +1516,13 @@
                 <i class="devicon-mysql-plain colored" title="MySQL"></i>
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                  alt="Node.js Logo" title="Node.js"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
-              <a href="https://promolider.org/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+              <a href="https://promolider.org/" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
@@ -1379,16 +1531,22 @@
             <img src="img/proyecto-ipssoma.webp" class="project-img" alt="SEO en la Página Web de IPSSOMA">
             <div class="project-body">
               <h5 class="fw-bold">SEO en la Página Web de IPSSOMA</h5>
-              <p class="text-white">Optimización SEO para IPSSOMA, plataforma educativa en Seguridad, Medio Ambiente y Calidad. Se mejoró el posicionamiento y la estructura del contenido.</p>
+              <p class="text-white">Optimización SEO para IPSSOMA, plataforma educativa en Seguridad, Medio Ambiente y
+                Calidad. Se mejoró el posicionamiento y la estructura del contenido.</p>
               <div class="project-tech">
                 <i class="devicon-html5-plain colored" title="HTML5"></i>
                 <i class="devicon-css3-plain colored" title="CSS3"></i>
                 <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png" alt="Vue.js Logo" title="Vue.js" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                  alt="Vue.js Logo" title="Vue.js"
+                  style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
               </div>
-              <a href="https://ipssoma.com/" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+              <a href="https://ipssoma.com/" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
@@ -1397,18 +1555,34 @@
             <img src="img/proyecto-wifi.webp" class="project-img" alt="Sistema de Reservas">
             <div class="project-body">
               <h5 class="fw-bold">Sistema CMR para usuarios conectados a una red WIFI - Matriciano Polar</h5>
-              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispositivos conectados.</p>
+              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispositivos
+                conectados.</p>
               <div class="project-tech">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" alt="Figma-logo" title="Figma" style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-                <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png" alt="Tailwind CSS" title="Tailwind CSS" style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                  alt="Figma-logo" title="Figma"
+                  style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png"
+                  alt="Tailwind CSS" title="Tailwind CSS"
+                  style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
                 <i class="devicon-javascript-plain colored" title="JavaScript"></i>
                 <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo" title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Python Logo" title="Python" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 2px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                  alt="Node.js Logo" title="Node.js"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                  alt="Python Logo" title="Python"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 2px; transition: transform 0.2s;"
+                  onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
-              <a href="https://github.com/dev-promolider/wifi" target="_blank" class="project-btn" style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
+              <a href="https://github.com/dev-promolider/wifi" target="_blank" class="project-btn"
+                style="display: block; width: fit-content; margin: 0 auto;">Ver proyecto</a>
             </div>
           </div>
         </div>
@@ -1432,7 +1606,8 @@
             </div>
             <div class="col-md-6">
               <label for="telefono" class="form-label">Teléfono</label>
-              <input type="tel" class="form-control" id="telefono" inputmode="numeric" pattern="\d{7,15}" placeholder="Ingresa tu teléfono" required>
+              <input type="tel" class="form-control" id="telefono" inputmode="numeric" pattern="\d{7,15}"
+                placeholder="Ingresa tu teléfono" required>
             </div>
             <div class="col-12">
               <label for="email" class="form-label">Correo electrónico</label>
@@ -1440,7 +1615,8 @@
             </div>
             <div class="col-12">
               <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" rows="5" placeholder="Describe tu proyecto o consulta..." required></textarea>
+              <textarea class="form-control" id="mensaje" rows="5" placeholder="Describe tu proyecto o consulta..."
+                required></textarea>
             </div>
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary">Enviar mensaje</button>
@@ -1458,13 +1634,15 @@
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Sobre Mí</h5>
-            <p>Soy un desarrollador web apasionado por transformar ideas en productos digitales funcionales, modernos y bien estructuradas.</p>
+            <p>Soy un desarrollador web apasionado por transformar ideas en productos digitales funcionales, modernos y
+              bien estructuradas.</p>
           </div>
         </div>
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Contacto</h5>
-            <p class="social-hover" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales.', '_blank')">
+            <p class="social-hover"
+              onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales.', '_blank')">
               <i class="bi bi-envelope me-2"></i>manuelestelo23@gmail.com
             </p>
             <p class="social-hover" onclick="window.open('https://wa.me/51904652881', '_blank')">
@@ -1476,8 +1654,12 @@
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Sígueme</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
-              <li class="social-hover" onclick="window.open('https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/', '_blank')"><i class="bi bi-linkedin me-2"></i>LinkedIn</li>
-              <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i class="bi bi-github me-2"></i>GitHub</li>
+              <li class="social-hover"
+                onclick="window.open('https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/', '_blank')">
+                <i class="bi bi-linkedin me-2"></i>LinkedIn
+              </li>
+              <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i
+                  class="bi bi-github me-2"></i>GitHub</li>
             </ul>
           </div>
         </div>
@@ -1536,7 +1718,7 @@
         const category = item.getAttribute('data-category');
         const year = item.getAttribute('data-year');
         const isVisible = (currentCategory === 'all' || category === currentCategory) &&
-                          (currentYear === 'all' || year === currentYear);
+          (currentYear === 'all' || year === currentYear);
 
         if (isVisible) {
           if (category === 'logro' && (logrosExpanded || logroCount < 4)) {
@@ -1619,4 +1801,5 @@
     });
   </script>
 </body>
+
 </html>
