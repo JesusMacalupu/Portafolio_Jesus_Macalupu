@@ -21,7 +21,7 @@
       --primary: #00f0ff;
       --primary-dark: #00c4d1;
       --accent: linear-gradient(135deg, #00f0ff, #002aff);
-      --glass: rgba(255, 255, 255, 0.05);
+      --glass: rgba(255, 255, 255, 0.08);
       --white: #ffffff;
       --light-gray: #f8f9fa;
       --dark-gray: #6c757d;
@@ -48,7 +48,7 @@
 
     .navbar {
       background: var(--glass);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       padding: 1rem 0;
       transition: all 0.3s ease;
@@ -362,17 +362,11 @@
       background-color: #12141c;
       border: none;
       border-radius: 15px;
-      transition: all 0.4s ease;
       color: var(--white);
       position: relative;
       overflow: hidden;
       height: 100%;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 35px rgba(0, 240, 255, 0.3);
     }
 
     .project-img {
@@ -595,7 +589,204 @@
       text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
     }
 
-    @media (max-width: 992px) {
+    .achievement-card {
+      background: linear-gradient(145deg, rgba(18, 20, 28, 0.95), rgba(30, 35, 50, 0.95));
+      border: none;
+      border-radius: 15px;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 220px;
+      backdrop-filter: blur(10px);
+    }
+
+    .achievement-img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 15px 0 0 15px;
+    }
+
+    .achievement-body {
+      padding: 1.5rem;
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .achievement-type {
+      display: inline-block;
+      vertical-align: middle;
+      background: var(--accent);
+      color: black;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 2px 8px rgba(0, 240, 255, 0.3);
+      width: fit-content;
+    }
+
+    .achievement-type-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .achievement-type-icon {
+      width: 32px;
+      height: 24px;
+      vertical-align: middle;
+      margin-left: 8px;
+      transform: translateY(-3.2px);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-type-icon-empresa {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+      margin-left: 8px;
+      transform: translateY(-3.2px);
+      transition: transform 0.3s ease;
+    }
+
+    .achievement-type-icon:hover {
+      transform: scale(1.1) translateY(-3.2px);
+    }
+
+    .achievement-type-icon-empresa:hover {
+      transform: scale(1.1) translateY(-3.2px);
+    }
+
+    .achievement-body h5 {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .achievement-body p.description {
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+
+    .achievement-body p.issuer {
+      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .filter-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    .filter-dropdown .btn {
+      background: var(--glass);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.5rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      font-size: 0.9rem;
+    }
+
+    .filter-dropdown .btn:hover,
+    .filter-dropdown .btn.active {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0, 240, 255, 0.4);
+      transform: scale(1.05);
+    }
+
+    .filter-dropdown .dropdown-menu {
+      background: var(--dark-bg);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+    }
+
+    .filter-dropdown .dropdown-item {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .filter-dropdown .dropdown-item:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    .achievement-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.75rem;
+      width: fit-content;
+      box-shadow: 0 2px 10px rgba(0, 240, 255, 0.3);
+    }
+
+    .achievement-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 240, 255, 0.5);
+      color: white;
+    }
+
+    .more-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 991px) {
       .about-container {
         flex-direction: column;
         align-items: center;
@@ -616,6 +807,36 @@
       .tech-item img {
         font-size: 2.8rem;
         height: 2.8rem;
+      }
+
+      .achievement-card {
+        flex-direction: row;
+        min-height: auto;
+      }
+
+      .achievement-img {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 15px 0 0 15px;
+      }
+
+      .achievement-body {
+        width: 50%;
+        padding: 1.2rem;
+      }
+
+      .filter-buttons {
+        flex-wrap: nowrap;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      .filter-btn,
+      .filter-dropdown .btn {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
       }
     }
 
@@ -688,10 +909,162 @@
         max-width: 18%;
       }
 
-      /* Hide carousel arrows on mobile */
       .carousel-control-prev,
       .carousel-control-next {
         display: none;
+      }
+
+      .filter-buttons {
+        flex-direction: row;
+        align-items: center;
+        font-size: 0.8rem;
+      }
+
+      .filter-btn,
+      .filter-dropdown .btn {
+        padding: 0.3rem 0.8rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+
+      .more-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .more-buttons .btn-outline-light {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .achievement-card {
+        flex-direction: row;
+        margin-bottom: 1.5rem;
+      }
+
+      .achievement-img {
+        width: 50%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 15px 0 0 15px;
+      }
+
+      .achievement-body {
+        width: 50%;
+        padding: 1rem;
+      }
+
+      .achievement-body h5 {
+        font-size: 1rem;
+      }
+
+      .achievement-body p.description {
+        font-size: 0.75rem;
+      }
+
+      .achievement-body p.issuer {
+        font-size: 0.7rem;
+      }
+
+      .achievement-type {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.6rem;
+      }
+
+      .achievement-type-icon {
+        width: 25px;
+        height: 20px;
+        margin-left: 6px;
+        transform: translateY(-3.2px);
+      }
+
+      .achievement-type-icon:hover {
+        transform: scale(1.1) translateY(-3.2px);
+      }
+
+      .achievement-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Diseño vertical solo para certificaciones - cards verticales */
+    .achievement-card.vertical-cert {
+      flex-direction: column !important;
+      min-height: auto;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 15px;
+    }
+
+    .achievement-card.vertical-cert .achievement-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      object-position: top center;
+      border-radius: 15px 15px 0 0 !important;
+      background-color: #1a1d27;
+      margin: 0 !important;
+      padding: 0 !important;
+      display: block;
+
+    }
+
+    /* Elimina espacios fantasma causados por elementos inline */
+    .achievement-card.vertical-cert {
+      line-height: 0;
+      font-size: 0;
+    }
+
+    /* Restaura el tamaño normal solo en el cuerpo del texto */
+    .achievement-card.vertical-cert .achievement-body {
+      line-height: 1.6;
+      font-size: initial;
+    }
+
+    .achievement-card.vertical-cert .achievement-body {
+      width: 100%;
+      padding: 2rem 1.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(145deg, rgba(18, 20, 28, 0.95), rgba(30, 35, 50, 0.95));
+    }
+
+    .achievement-card.vertical-cert .achievement-type-container {
+      justify-content: center;
+      margin-bottom: 1rem;
+      gap: 0.8rem;
+    }
+
+    .achievement-card.vertical-cert .achievement-btn {
+      margin-top: 1rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 992px) {
+      .achievement-card.vertical-cert .achievement-img {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .achievement-card.vertical-cert .achievement-img {
+        height: 220px;
+      }
+
+      .achievement-card.vertical-cert .achievement-body {
+        padding: 1.8rem 1rem 2.2rem;
+      }
+
+      .achievement-card.vertical-cert h5 {
+        font-size: 1.1rem;
+      }
+
+      .achievement-card.vertical-cert .description {
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -709,6 +1082,7 @@
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="#logros-certificaciones">Logros y Certificaciones</a></li>
           <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
           <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
         </ul>
@@ -716,7 +1090,7 @@
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero Section -->
   <section id="inicio" class="hero">
     <div class="container hero-content">
       <br><br>
@@ -728,14 +1102,15 @@
         <a href="#proyectos" class="btn-outline-light">Ver proyectos</a>
         <a href="#contacto" class="btn-primary">Contactar</a>
       </div>
-      <a href="#" class="btn-cv">
+      <a href="https://drive.google.com/file/d/1lE3ecCmAS8aOe6bbQj2FGIl7SgV1OV9k/view?usp=sharing" target="_blank"
+        class="btn-cv">
         <span>Descargar CV</span>
         <i class="bi bi-download"></i>
       </a>
     </div>
   </section>
 
-  <!-- Sobre mí -->
+  <!-- About Section -->
   <section id="sobre-mi" class="section">
     <br>
     <div class="container">
@@ -746,15 +1121,17 @@
           <div class="info-group">
             <div class="info-item"><i class="fas fa-graduation-cap"></i> Ingeniería de Sistemas</div>
             <div class="info-item"><i class="fas fa-university"></i> Universidad Autónoma del Perú</div>
-            <div class="info-item"><i class="fas fa-cake-candles"></i> 21 años</div>
+            <div class="info-item"><i class="fas fa-cake-candles"></i> 22 años</div>
             <div class="info-item"><i class="fas fa-location-dot"></i> Perú, Lima, Villa el Salvador</div>
             <div class="info-item"><i class="fas fa-envelope"></i> manuelestelo23@gmail.com</div>
             <div class="info-item"><i class="fas fa-phone"></i> +51 904 652 881</div>
           </div>
           <div class="social-icons">
-            <a href="https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
             <a href="https://github.com/JesusMacalupu" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales." target="_blank">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales."
+              target="_blank">
               <i class="fab fa-google"></i>
             </a>
             <a href="https://wa.me/51904652881" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -763,11 +1140,11 @@
         <div class="about-content">
           <h2 class="section-title">Sobre Mí</h2>
           <div>
-            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4 meses de
-              experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque UI/UX para
-              lograr soluciones efectivas y bien estructuradas.</p>
-            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre al día
-              con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
+            <p class="mb-4">Soy un desarrollador web apasionado por crear experiencias digitales funcionales. Con 4
+              meses de experiencia, he trabajado en proyectos front-end y back-end, combinando lo técnico con un enfoque
+              UI/UX para lograr soluciones efectivas y bien estructuradas.</p>
+            <p class="mb-5">Diseño soluciones web centradas en el usuario: visuales, intuitivas y funcionales. Siempre
+              al día con las últimas tecnologías para ofrecer resultados modernos y de alto impacto.</p>
             <h4 class="mb-4">Habilidades Técnicas</h4>
             <div id="techCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
               <div class="carousel-indicators">
@@ -803,15 +1180,18 @@
                   <div class="container">
                     <div class="row justify-content-center">
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
                           alt="Python Logo" title="Python">
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
                           alt="Figma Logo" title="Figma">
                       </div>
                       <div class="col-2 tech-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
                           alt="Vue.js Logo" title="Vue.js">
                       </div>
                       <div class="col-2 tech-item">
@@ -861,7 +1241,358 @@
     </div>
   </section>
 
-  <!-- Proyectos -->
+  <!-- Achievements and Certifications Section -->
+  <section id="logros-certificaciones" class="section angled">
+    <div class="container">
+      <h2 class="section-title text-center">Logros y Certificaciones</h2>
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="logro">Mis Logros</button>
+        <button class="filter-btn" data-filter="certificacion">Mis Certificaciones</button>
+        <div class="filter-dropdown dropdown">
+          <button class="btn dropdown-toggle" type="button" id="yearFilter" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            Filtrar
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="yearFilter">
+            <li><a class="dropdown-item" href="#" data-filter-year="all">Todos los años</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2021">2021</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2022">2022</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2023">2023</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2024">2024</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2025">2025</a></li>
+            <li><a class="dropdown-item" href="#" data-filter-year="2026">2026</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row g-4" id="achievements-container">
+        <!-- Logros -->
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
+          <div class="card achievement-card">
+            <img src="img/logros/diploma honor.webp" class="achievement-img" alt="logro-java-programming">
+            <div class="achievement-body">
+              <h5 class="fw-bold">DIPLOMA DE HONOR AL MÉRITO PRIMER PUESTO: CICLO IX</h5>
+              <p class="description">Por haber ocupado el primer puesto en el ciclo IX de la Carrera Profesional de
+                Ingeniería de Sistemas en el semestre académico 2025-01.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2025</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W202509081611B2774.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - Hoja menbretada de practicas.webp" class="achievement-img"
+              alt="hoja-membreteada-practicas">
+            <div class="achievement-body">
+              <h5 class="fw-bold">PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
+              <p class="description">Certificación otorgada por realizar prácticas por 4 meses (480 horas). El proyecto
+                realizado fue un “Sistema de Gestión para CMR para usuarios conectados a una red WIFI”.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+                <img src="img/empresa-practicas.jfif" class="achievement-type-icon-empresa" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Promolíder ORG: Prácticas Pre Profesionales - 2025</p>
+              <a href="https://drive.google.com/file/d/1Zj3_hP_GTQ9oT3pzaxFcLJeiLQ0SE8bb/view?usp=sharing"
+                target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2025">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - Constancia de practicas profesinales.webp" class="achievement-img"
+              alt="constancia-practicas-profesionales">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CONSTANCIA DE PRÁCTICAS PRE PROFESIONALES EN PROMOLÍDER ORG</h5>
+              <p class="description">Constancia otorgada por cumplir satisfactoriamente con todas las tareas y proyectos
+                asignados en el área de Desarrollo Web.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+                <img src="img/empresa-practicas.jfif" class="achievement-type-icon-empresa" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Promlíder ORG: Prácticas Pre Profesionales - 2025</p>
+              <a href="https://drive.google.com/file/d/1NuWeTAtTIenD3SHpTTcugbRG5fQOv3J7/view?usp=sharing"
+                target="_blank" class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - JAVA PROGRAMMING.webp" class="achievement-img" alt="logro-java-programming">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: JAVA PROGRAMMING</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar cada uno de
+                los requisitos como Java Programming.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905215CPCB12.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - DATABASE DESIGN AND PROGRAMMING WITH SQL.webp" class="achievement-img"
+              alt="certificación-database-design">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: DATABASE DESIGN AND PROGRAMMING WITH SQL</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los
+                requisitos como DATABASE DESIGN AND PROGRAMMING WITH SQL.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220905222CPF620.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - ADMINISTRADOR DE REDES Y COMUNICACIONES.webp" class="achievement-img"
+              alt="Ponente en Conferencia">
+            <div class="achievement-body">
+              <h5 class="fw-bold">CERTIFICACIÓN PROGRESIVA: ADMINISTRADOR DE REDES Y COMUNICACIONES</h5>
+              <p class="description">Logro otorgado por la Facultad de Ingeniería y Arquitectura por aprobar los
+                requisitos como ADMINISTRADOR DE REDES Y COMUNICACIONES.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2024</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20240123122CP7C8B.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2022">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - HABILIDADES DIGITALES.webp" class="achievement-img"
+              alt="logro-habilidades-digitales">
+            <div class="achievement-body">
+              <h5 class="fw-bold">HABILIDADES DIGITALES</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Habilidades Digitales,
+                realizado por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2022</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W20220704201197925.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2023">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - INTELIGENCIA EMOCIONAL.webp" class="achievement-img"
+              alt="logro-inteligencia-emocional">
+            <div class="achievement-body">
+              <h5 class="fw-bold">INTELIGENCIA EMOCIONAL: PERCIBE, MANEJA, COMPRENDE Y UTILIZA LAS EMOCIONES</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de I.E. : Percibe, Maneja,
+                Comprende y Utiliza las emociones, realizado por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2023</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2023022711516EAF7.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-12 achievement-item" data-category="logro" data-year="2024">
+          <div class="card achievement-card">
+            <img src="img/logros/logro - SCRUM Y KANBAN.webp" class="achievement-img" alt="logro-scrum-kanban">
+            <div class="achievement-body">
+              <h5 class="fw-bold">SCRUM Y KANBAN</h5>
+              <p class="description">Logro otorgado por aprobar satisfactoriamente el curso de Scrum y Kanban, realizado
+                por la Dirección de Educación Continua UA.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Logro</span>
+                <img src="img/logoUA-portafolio.png" class="achievement-type-icon" alt="Achievement Icon">
+              </div>
+              <p class="issuer">Universidad Autónoma Perú - 2024</p>
+              <a href="https://virtual.autonoma.edu.pe/ConstanciasRA/W2024110619514635B.pdf" target="_blank"
+                class="achievement-btn">Ver logro</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificaciones -->
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/javascriptCisco.webp" class="achievement-img"
+              alt="JavaScript Essentials 1">
+            <div class="achievement-body">
+              <h5 class="fw-bold">JavaScript Essentials 1</h5>
+              <p class="description">Offered by Networking Academy through the Cisco Networking Academy program.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1am8VNWhDc-hOpJ2fUPiys9rMmK9hv8JF/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/SO-Cisco.webp" class="achievement-img" alt="Operating Systems Basics">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Operating Systems Basics</h5>
+              <p class="description">Offered by Networking Academy through the Cisco Networking Academy program.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1n3CMFQK7tTqSGZMRhxdXdmNkmVpMoHSM/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/hackerEtico.webp" class="achievement-img" alt="Hacker ético">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Hacker ético</h5>
+              <p class="description">Ofrecido por Networking Academy a través del programa Cisco Networking Academy.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2025</p>
+              <a href="https://drive.google.com/file/d/1uqMbI1_irYSbdIdDxDKzJwlxMYGypFAz/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/introCiberseguridad.webp" class="achievement-img" alt="Introducción a la Ciberseguridad">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Introducción a la Ciberseguridad</h5>
+              <p class="description">Ofrecido por Networking Academy a través del programa Cisco Networking Academy.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2024</p>
+              <a href="https://drive.google.com/file/d/1q6Sz_e5tzQRonMrvj1T3oaWf7XgudfzO/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2024">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/fundamentosPython.webp" class="achievement-img" alt="Fundamentos de Python 1">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Fundamentos de Python 1</h5>
+              <p class="description">Ofrecido por Networking Academy a través del programa Cisco Networking Academy.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/ciscoNetworkingAcademy.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Cisco Networking Academy - 2024</p>
+              <a href="https://drive.google.com/file/d/1TTGTdNJotkJlQnBZ-vkq_Bi_Aun4Rgnb/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/PowerBI-iNAPCE.webp" class="achievement-img" alt="Power BI">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Power BI</h5>
+              <p class="description">Certificado en Power BI en INAPCE: Introducción, Datos, Dashboards y Análisis Avanzado.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/inapce.jfif" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">INAPCE - 2025</p>
+              <a href="https://drive.google.com/file/d/1ltvZqn5Ke04AD8EngpMp8TlJMRCRvOQb/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/htmlAndcss.webp" class="achievement-img" alt="Diseño Web con HTML5 + CSS">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Diseño Web con HTML5 + CSS</h5>
+              <p class="description">Certificación enfocada a la creación de paginas web profesionales usando HTML5 y CSS.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/conecta-empleo.jpg" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Conecta Empleo: Fundación Telefónica Movistar - 2025</p>
+              <a href="https://drive.google.com/file/d/1tBLehKbJhRVKA2A9y6u_bXkZR1Ewzk0q/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/apredeWordpress.webp" class="achievement-img" alt="Aprende Wordpress de forma sencilla">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Aprende Wordpress de forma sencilla</h5>
+              <p class="description">Landing Page y Páginas Web en Wordpress</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/conecta-empleo.jpg" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Conecta Empleo: Fundación Telefónica Movistar - 2025</p>
+              <a href="https://drive.google.com/file/d/1hlD4whNv3MZmrz4jSqyYC_tdWVW2aGKx/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-12 achievement-item" data-category="certificacion" data-year="2025">
+          <div class="card achievement-card vertical-cert">
+            <img src="img/certificados/basicoBigData.webp" class="achievement-img" alt="Principios Básicos de Big Data">
+            <div class="achievement-body">
+              <h5 class="fw-bold">Principios Básicos de Big Data</h5>
+              <p class="description">Certificación enfocada en los principios básicos del Big Data.</p>
+              <div class="achievement-type-container">
+                <span class="achievement-type">Certificación</span>
+                <img src="img/conecta-empleo.jpg" class="achievement-type-icon-empresa" style="margin-left:-4px;" alt="Certification Icon">
+              </div>
+              <p class="issuer">Conecta Empleo: Fundación Telefónica Movistar - 2025</p>
+              <a href="https://drive.google.com/file/d/1lZeEYiG65Uua28IIjxBPPWHDWqbcCGvd/view?usp=sharing" target="_blank" class="achievement-btn">Ver certificado</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-buttons">
+          <a href="#" class="btn btn-outline-light" id="more-logros">Ver todos mis logros</a>
+          <a href="#" class="btn btn-outline-light" id="more-certificaciones" style="display: none;">Ver todas las
+            certificaciones</a>
+        </div>
+      </div>
+  </section>
+
+  <!-- Projects Section -->
   <section id="proyectos" class="section angled">
     <div class="container">
       <h2 class="section-title text-center">Proyectos Destacados</h2>
@@ -881,8 +1612,9 @@
                 <i class="devicon-mysql-plain colored" title="MySQL"></i>
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo"
-                  title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                  alt="Node.js Logo" title="Node.js"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
               </div>
               <a href="https://promolider.org/" target="_blank" class="project-btn"
@@ -901,7 +1633,8 @@
                 <i class="devicon-html5-plain colored" title="HTML5"></i>
                 <i class="devicon-css3-plain colored" title="CSS3"></i>
                 <i class="devicon-javascript-plain colored" title="JavaScript"></i>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png"
                   alt="Vue.js Logo" title="Vue.js"
                   style="width: 30px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
@@ -918,10 +1651,11 @@
             <img src="img/proyecto-wifi.webp" class="project-img" alt="Sistema de Reservas">
             <div class="project-body">
               <h5 class="fw-bold">Sistema CMR para usuarios conectados a una red WIFI - Matriciano Polar</h5>
-              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispostivos
+              <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispositivos
                 conectados.</p>
               <div class="project-tech">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png"
                   alt="Figma-logo" title="Figma"
                   style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
@@ -933,10 +1667,12 @@
                 <i class="devicon-microsoftsqlserver-plain colored" title="SQL Server"></i>
                 <i class="devicon-git-plain colored" title="Git"></i>
                 <i class="devicon-github-original" title="GitHub" style="color: white;"></i>
-                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp" alt="Node.js Logo"
-                  title="Node.js" style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
+                <img src="https://cdn.iconscout.com/icon/free/png-256/free-node-js-1174925.png?f=webp"
+                  alt="Node.js Logo" title="Node.js"
+                  style="width: 32px; height: 32px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
                   alt="Python Logo" title="Python"
                   style="width: 32px; height: 32px; vertical-align: middle; margin-right: 2px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
@@ -953,7 +1689,7 @@
     </div>
   </section>
 
-  <!-- Contacto -->
+  <!-- Contact Section -->
   <section id="contacto" class="section bg-dark">
     <div class="container">
       <h2 class="section-title text-center mb-5">Contacto</h2>
@@ -966,7 +1702,8 @@
             </div>
             <div class="col-md-6">
               <label for="telefono" class="form-label">Teléfono</label>
-              <input type="tel" class="form-control" id="telefono"  inputmode="numeric" pattern="\d{7,15}" placeholder="Ingresa tu teléfono" required>
+              <input type="tel" class="form-control" id="telefono" inputmode="numeric" pattern="\d{7,15}"
+                placeholder="Ingresa tu teléfono" required>
             </div>
             <div class="col-12">
               <label for="email" class="form-label">Correo electrónico</label>
@@ -1000,7 +1737,8 @@
         <div class="col-md-4">
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Contacto</h5>
-            <p class="social-hover" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales.', '_blank')">
+            <p class="social-hover"
+              onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=manuelestelo23@gmail.com&su=Consulta%20Profesional&body=Estimado%20Jesus%20Macalupu%2C%0A%0AHe%20visitado%20su%20portafolio%20y%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20para%20conversar%20sobre%20una%20posible%20colaboraci%C3%B3n.%0A%0AQuedo%20atento%20a%20su%20respuesta.%0A%0ASaludos%20cordiales.', '_blank')">
               <i class="bi bi-envelope me-2"></i>manuelestelo23@gmail.com
             </p>
             <p class="social-hover" onclick="window.open('https://wa.me/51904652881', '_blank')">
@@ -1012,8 +1750,12 @@
           <div class="footer-box h-100 p-3">
             <h5 class="footer-title mb-3">Sígueme</h5>
             <ul class="list-unstyled d-flex flex-column gap-3">
-              <li class="social-hover" onclick="window.open('https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/', '_blank')"><i class="bi bi-linkedin me-2"></i>LinkedIn</li>
-              <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i class="bi bi-github me-2"></i>GitHub</li>
+              <li class="social-hover"
+                onclick="window.open('https://www.linkedin.com/in/jesus-manuel-macalupu-estelo-12974b329/', '_blank')">
+                <i class="bi bi-linkedin me-2"></i>LinkedIn
+              </li>
+              <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i
+                  class="bi bi-github me-2"></i>GitHub</li>
             </ul>
           </div>
         </div>
@@ -1023,6 +1765,7 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Navbar scroll effect
@@ -1043,6 +1786,114 @@
           behavior: 'smooth'
         });
       });
+    });
+
+    // Filter functionality for achievements and certifications
+    let currentCategory = 'logro';
+    let currentYear = 'all';
+    let logrosExpanded = false;
+    let certificacionesExpanded = false;
+
+    function applyFilters() {
+      const items = document.querySelectorAll('.achievement-item');
+      const moreLogrosBtn = document.querySelector('#more-logros');
+      const moreCertificacionesBtn = document.querySelector('#more-certificaciones');
+      let logroCount = 0;
+      let certificacionCount = 0;
+
+      // Show or hide buttons based on current category
+      if (currentCategory === 'logro') {
+        moreLogrosBtn.style.display = 'block';
+        moreCertificacionesBtn.style.display = 'none';
+      } else if (currentCategory === 'certificacion') {
+        moreLogrosBtn.style.display = 'none';
+        moreCertificacionesBtn.style.display = 'block';
+      }
+
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        const year = item.getAttribute('data-year');
+        const isVisible = (currentCategory === 'all' || category === currentCategory) &&
+          (currentYear === 'all' || year === currentYear);
+
+        if (isVisible) {
+          if (category === 'logro' && (logrosExpanded || logroCount < 4)) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+            logroCount++;
+          } else if (category === 'certificacion' && (certificacionesExpanded || certificacionCount < 6)) {
+            item.style.display = 'block';
+            setTimeout(() => {
+              item.style.opacity = '1';
+              item.style.transform = 'translateY(0)';
+            }, 50);
+            certificacionCount++;
+          } else {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              item.style.display = 'none';
+            }, 300);
+          }
+        } else {
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    }
+
+    // Category filter buttons
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function () {
+        currentCategory = this.getAttribute('data-filter');
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        logrosExpanded = false;
+        certificacionesExpanded = false;
+        applyFilters();
+      });
+    });
+
+    // Year filter dropdown
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', function (e) {
+        e.preventDefault();
+        currentYear = this.getAttribute('data-filter-year');
+        document.querySelector('#yearFilter').textContent = currentYear === 'all' ? 'Filtrar' : currentYear;
+        logrosExpanded = false;
+        certificacionesExpanded = false;
+        applyFilters();
+      });
+    });
+
+    // More buttons functionality
+    document.querySelector('#more-logros').addEventListener('click', function (e) {
+      e.preventDefault();
+      logrosExpanded = !logrosExpanded;
+      currentCategory = 'logro';
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="logro"]').classList.add('active');
+      applyFilters();
+    });
+
+    document.querySelector('#more-certificaciones').addEventListener('click', function (e) {
+      e.preventDefault();
+      certificacionesExpanded = !certificacionesExpanded;
+      currentCategory = 'certificacion';
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelector('.filter-btn[data-filter="certificacion"]').classList.add('active');
+      applyFilters();
+    });
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+      applyFilters();
     });
   </script>
 </body>
