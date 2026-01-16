@@ -15,6 +15,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Firebase Conexión -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
   <style>
     :root {
       --dark-bg: #0f1117;
@@ -495,6 +498,11 @@
       border-radius: 15px;
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-control::placeholder {
+      color: #F2F0EB !important;
+      opacity: 0.8 !important;
     }
 
     .form-label {
@@ -1066,6 +1074,161 @@
       .achievement-card.vertical-cert .description {
         font-size: 0.85rem;
       }
+    }
+
+    /* ========== ESTILOS DE FORMULARIO ========== */
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+      color: #ffffff !important;
+      border-color: #6c757d !important;
+      padding: 12px 15px;
+      border-radius: 8px;
+    }
+
+    .form-control:focus {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      color: #ffffff !important;
+      border-color: #0d6efd !important;
+      box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+    }
+
+    /* ========== ESTILOS DE VALIDACIÓN ========== */
+    .form-control.is-valid {
+      border-color: #198754 !important;
+    }
+
+    .form-control.is-valid:focus {
+      border-color: #198754 !important;
+      box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25) !important;
+    }
+
+    .form-control.is-invalid {
+      border-color: #dc3545 !important;
+    }
+
+    .form-control.is-invalid:focus {
+      border-color: #dc3545 !important;
+      box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+    }
+
+    .valid-feedback {
+      color: #198754 !important;
+      font-size: 0.875em;
+      margin-top: 0.25rem;
+    }
+
+    .invalid-feedback {
+      color: #dc3545 !important;
+      font-size: 0.875em;
+      margin-top: 0.25rem;
+    }
+
+    .valid-feedback,
+    .invalid-feedback {
+      display: none;
+    }
+
+    .form-control.is-valid~.valid-feedback,
+    .form-control.is-invalid~.invalid-feedback {
+      display: block;
+    }
+
+    /* ========== ETIQUETAS ========== */
+    .form-label {
+      color: #ffffff !important;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ========== ANIMACIÓN DEL CHECKMARK ========== */
+    .checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: #4bb71b;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+
+    .checkmark {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 2;
+      stroke: #fff;
+      stroke-miterlimit: 10;
+      margin: 0 auto;
+      box-shadow: inset 0px 0px 0px #4bb71b;
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+
+    .checkmark__check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes scale {
+
+      0%,
+      100% {
+        transform: none;
+      }
+
+      50% {
+        transform: scale3d(1.1, 1.1, 1);
+      }
+    }
+
+    @keyframes fill {
+      100% {
+        box-shadow: inset 0px 0px 0px 40px #4bb71b;
+      }
+    }
+
+    /* ========== ESTILOS DEL MODAL ========== */
+    .modal-content {
+      border-radius: 15px;
+      border: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ========== BOTÓN ENVIAR ========== */
+    #submitBtn {
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+    }
+
+    /* ========== SECCIÓN ========== */
+    .section {
+      padding: 80px 0;
+    }
+
+    .bg-dark {
+      background-color: #1a1a1a !important;
+    }
+
+    .section-title {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .toast-container {
+      z-index: 9999;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
     }
   </style>
 </head>
@@ -1838,38 +2001,113 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contacto" class="section bg-dark">
-    <div class="container">
+  <section id="contacto" class="section bg-dark text-white">
+    <div class="container py-5">
       <h2 class="section-title text-center mb-5">Contacto</h2>
       <div class="contact-form">
-        <form>
+        <form id="contactForm">
           <div class="row g-3">
+            <!-- NOMBRE - Solo letras -->
             <div class="col-md-6">
               <label for="nombre" class="form-label">Nombre completo</label>
               <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre" required>
+              <div class="valid-feedback">
+                ✓ Nombre válido
+              </div>
+              <div class="invalid-feedback">
+                Solo letras y espacios
+              </div>
             </div>
+
+            <!-- TELÉFONO - Solo números -->
             <div class="col-md-6">
               <label for="telefono" class="form-label">Teléfono</label>
-              <input type="tel" class="form-control" id="telefono" inputmode="numeric" pattern="\d{7,15}"
-                placeholder="Ingresa tu teléfono" required>
+              <input type="tel" class="form-control" id="telefono" placeholder="Ingresa tu teléfono" required>
+              <div class="valid-feedback">
+                ✓ Teléfono válido
+              </div>
+              <div class="invalid-feedback">
+                7-15 dígitos numéricos
+              </div>
             </div>
+
+            <!-- EMAIL - Debe tener @ -->
             <div class="col-12">
               <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
+              <input type="email" class="form-control" id="email" placeholder="ejemplo@correo.com" required>
+              <div class="valid-feedback">
+                ✓ Email válido
+              </div>
+              <div class="invalid-feedback">
+                Debe tener formato válido (ej: nombre@dominio.com)
+              </div>
             </div>
+
+            <!-- MENSAJE - SIN LÍMITE -->
             <div class="col-12">
               <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" rows="5" placeholder="Describe tu proyecto o consulta..."
+              <textarea class="form-control" id="mensaje" rows="6" placeholder="Describe tu proyecto o consulta..."
                 required></textarea>
+              <div class="valid-feedback">
+                ✓ Mensaje válido
+              </div>
+              <div class="invalid-feedback">
+                Mínimo 10 caracteres
+              </div>
             </div>
-            <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+
+            <!-- BOTÓN ENVIAR -->
+            <div class="col-12 text-center mt-4">
+              <button type="submit" class="btn btn-primary btn-lg px-5" id="submitBtn">
+                <span id="btnText">
+                  Enviar mensaje
+                </span>
+                <span id="btnLoading" style="display:none">
+                  <span class="spinner-border spinner-border-sm" role="status"></span>
+                  Enviando...
+                </span>
+              </button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </section>
+
+  <!-- Modal de Exito -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+    data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center py-4">
+          <!-- Icono animado -->
+          <div class="success-animation mb-4">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52" width="80" height="80">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+            </svg>
+          </div>
+
+          <h3 class="modal-title mb-3 text-success">¡Mensaje Enviado!</h3>
+          <p class="text-muted mb-4">
+            Gracias por contactarme. Te responderé en lo más pronto posible.
+          </p>
+
+          <button type="button" class="btn btn-success px-4 py-2" data-bs-dismiss="modal">
+            Entendido
+          </button>
+        </div>
+        <div class="modal-footer border-0 justify-content-center pt-0">
+          <small class="text-muted">
+            Respuesta en menos de 24 horas
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="text-white pt-5 pb-3">
@@ -2111,6 +2349,264 @@
       applyFilters();
     });
   </script>
-</body>
 
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+    // TU CONFIGURACIÓN DE FIREBASE
+    const firebaseConfig = {
+      apiKey: "AIzaSyBOIRXbI0J-rEQhxINjpRP_84ssxtZv5Uw",
+      authDomain: "portafoliocontactos.firebaseapp.com",
+      projectId: "portafoliocontactos",
+      storageBucket: "portafoliocontactos.firebasestorage.app",
+      messagingSenderId: "28528650137",
+      appId: "1:28528650137:web:08a97d5d752f77cdd5d508",
+      measurementId: "G-K8WBBQNP7V"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // ============================================
+    // MANEJAR EL FORMULARIO CON VALIDACIONES
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function () {
+      // Elementos del DOM
+      const contactForm = document.getElementById('contactForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+      const btnLoading = document.getElementById('btnLoading');
+      const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+
+      // Campos del formulario
+      const nombreInput = document.getElementById('nombre');
+      const telefonoInput = document.getElementById('telefono');
+      const emailInput = document.getElementById('email');
+      const mensajeTextarea = document.getElementById('mensaje');
+
+      // ========== VALIDACIONES EN TIEMPO REAL ==========
+
+      // 1. NOMBRE: Solo letras y espacios
+      nombreInput.addEventListener('input', function () {
+        let valor = this.value;
+        // Permitir solo letras, espacios y acentos
+        valor = valor.replace(/[^A-Za-zÁÉÍÓÚáéíóúÑñ\s]/g, '');
+        this.value = valor;
+
+        // Validar
+        if (valor.trim() === '') {
+          this.classList.remove('is-valid', 'is-invalid');
+        } else if (/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(valor)) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        }
+      });
+
+      // 2. TELÉFONO: Solo números, 7-15 dígitos
+      telefonoInput.addEventListener('input', function () {
+        let valor = this.value;
+        // Solo números
+        valor = valor.replace(/\D/g, '');
+        this.value = valor;
+
+        // Validar
+        if (valor === '') {
+          this.classList.remove('is-valid', 'is-invalid');
+        } else if (/^\d{7,15}$/.test(valor)) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        }
+      });
+
+      // 3. EMAIL: Debe tener @ y formato válido
+      emailInput.addEventListener('input', function () {
+        const valor = this.value;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (valor === '') {
+          this.classList.remove('is-valid', 'is-invalid');
+        } else if (emailRegex.test(valor)) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        }
+      });
+
+      // 4. MENSAJE: Solo validar mínimo (SIN LÍMITE MÁXIMO)
+      mensajeTextarea.addEventListener('input', function () {
+        const longitud = this.value.length;
+
+        // Solo validar mínimo
+        if (longitud === 0) {
+          this.classList.remove('is-valid', 'is-invalid');
+        } else if (longitud >= 10) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        }
+      });
+
+      // ========== ENVIAR FORMULARIO ==========
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Validar todos los campos
+        let formularioValido = true;
+
+        // Validar nombre
+        const nombreValor = nombreInput.value.trim();
+        if (!/^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/.test(nombreValor) || nombreValor === '') {
+          nombreInput.classList.add('is-invalid');
+          formularioValido = false;
+        }
+
+        // Validar teléfono
+        const telefonoValor = telefonoInput.value.trim();
+        if (!/^\d{7,15}$/.test(telefonoValor)) {
+          telefonoInput.classList.add('is-invalid');
+          formularioValido = false;
+        }
+
+        // Validar email
+        const emailValor = emailInput.value.trim();
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(emailValor)) {
+          emailInput.classList.add('is-invalid');
+          formularioValido = false;
+        }
+
+        // Validar mensaje (solo mínimo)
+        const mensajeValor = mensajeTextarea.value.trim();
+        if (mensajeValor.length < 10) {
+          mensajeTextarea.classList.add('is-invalid');
+          formularioValido = false;
+        }
+
+        // Si hay errores, detener
+        if (!formularioValido) {
+          showToast('Por favor corrige los errores en el formulario', 'error');
+          return;
+        }
+
+        // Mostrar loading
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline';
+
+        try {
+          // Obtener hora actual de Perú
+          const ahora = new Date();
+          const opcionesLima = { timeZone: 'America/Lima' };
+          const fechaLima = new Date(ahora.toLocaleString('en-US', opcionesLima));
+
+          // Preparar datos para Firebase
+          const contacto = {
+            nombre: nombreValor,
+            telefono: telefonoValor,
+            email: emailValor.toLowerCase(),
+            mensaje: mensajeValor,
+            fecha_corta: fechaLima.toLocaleDateString('es-PE'),
+            hora: fechaLima.toLocaleTimeString('es-PE', {
+              hour: '2-digit',
+              minute: '2-digit'
+            }),
+            fecha_completa: fechaLima.toLocaleString('es-PE', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit'
+            }),
+            timestamp: serverTimestamp(),
+            estado: 'nuevo',
+            leido: false,
+            respondido: false
+          };
+
+          // 🔥 GUARDAR EN FIREBASE
+          await addDoc(collection(db, "contactos"), contacto);
+
+          // Mostrar modal de éxito
+          successModal.show();
+
+          // ctadoLimpiar formulario
+          contactForm.reset();
+
+          // Quitar clases de validación
+          [nombreInput, telefonoInput, emailInput, mensajeTextarea].forEach(input => {
+            input.classList.remove('is-valid', 'is-invalid');
+          });
+
+          console.log("✅ Mensaje guardado exitosamente en Firebase");
+
+        } catch (error) {
+          console.error("❌ Error al enviar:", error);
+          showToast('Error al enviar. Intenta de nuevo.', 'error');
+
+        } finally {
+          // Restaurar botón
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoading.style.display = 'none';
+        }
+      });
+
+      // ========== FUNCIÓN PARA MOSTRAR TOAST ==========
+      function showToast(mensaje, tipo = 'error') {
+        const color = tipo === 'error' ? 'danger' : 'success';
+
+        const toastHTML = `
+                    <div class="toast align-items-center text-white bg-${color} border-0" role="alert">
+                        <div class="d-flex">
+                            <div class="toast-body">
+                                ${mensaje}
+                            </div>
+                            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                        </div>
+                    </div>
+                `;
+
+        // Crear contenedor si no existe
+        let container = document.getElementById('toastContainer');
+        if (!container) {
+          container = document.createElement('div');
+          container.id = 'toastContainer';
+          container.className = 'toast-container position-fixed top-0 end-0 p-3';
+          document.body.appendChild(container);
+        }
+
+        // Agregar toast
+        container.insertAdjacentHTML('beforeend', toastHTML);
+        const toastEl = container.lastElementChild;
+        const toast = new bootstrap.Toast(toastEl, { delay: 5000 });
+        toast.show();
+
+        // Remover después
+        toastEl.addEventListener('hidden.bs.toast', function () {
+          this.remove();
+        });
+      }
+    });
+  </script>
+
+</body>
 </html>
