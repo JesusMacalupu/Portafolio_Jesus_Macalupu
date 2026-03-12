@@ -1230,6 +1230,372 @@
       resize: vertical;
       min-height: 120px;
     }
+
+    /* Estilos del juego Capy Dash */
+    .game-modal .game-dialog {
+      max-width: 1100px;
+      width: 95%;
+      margin: 0.5rem auto;
+    }
+
+    .game-modal .game-content {
+      background: transparent;
+      border: none;
+    }
+
+    .game-container {
+      background: #050505;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 40px var(--primary);
+    }
+
+    #game-escenario {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 1;
+      background: radial-gradient(circle at center, #1b2735 0%, #050505 100%);
+      position: relative;
+      border: 6px solid #222;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+    }
+
+    @media (max-width: 768px) {
+      #game-escenario {
+        aspect-ratio: auto;
+        height: 500px;
+      }
+
+      #game-capybara {
+        width: 20%;
+      }
+
+      .game-espina {
+        width: 60px;
+        height: 30px;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        bottom: 12%;
+        right: -10%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #game-escenario {
+        height: 480px;
+      }
+
+      #game-capybara {
+        width: 22%;
+      }
+
+      .game-espina {
+        width: 50px;
+        height: 25px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      #game-escenario {
+        height: 450px;
+      }
+
+      #game-capybara {
+        width: 24%;
+      }
+
+      .game-espina {
+        width: 45px;
+        height: 22px;
+      }
+    }
+
+    #game-suelo {
+      position: absolute;
+      bottom: 12%;
+      width: 100%;
+      height: 4px;
+      background: #00f2ff;
+      box-shadow: 0 0 20px #00f2ff;
+      z-index: 5;
+    }
+
+    #game-capybara {
+      width: 16%;
+      height: auto;
+      aspect-ratio: 1/1;
+      position: absolute;
+      bottom: 6%;
+      left: 10%;
+      background-image: url('img/capibaraSkins/capybaraJuego.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      z-index: 10;
+    }
+
+    .game-espina {
+      width: 6%;
+      height: 14%;
+      background-color: #ff0055;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      position: absolute;
+      bottom: 12%;
+      right: -10%;
+    }
+
+    .game-salto {
+      animation: game-saltoFisico 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes game-saltoFisico {
+      0% {
+        bottom: 6%;
+      }
+
+      45% {
+        bottom: 56%;
+        transform: rotate(-5deg);
+      }
+
+      100% {
+        bottom: 6%;
+      }
+    }
+
+    .game-mover-obs {
+      animation: game-moverObstaculo 1.5s infinite linear;
+    }
+
+    @keyframes game-moverObstaculo {
+      from {
+        right: -10%;
+      }
+
+      to {
+        right: 110%;
+      }
+    }
+
+    .game-modal-inner {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.96);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 1060;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .game-titulo {
+      font-size: clamp(2rem, 8vw, 85px);
+      color: #00f2ff;
+      text-shadow: 0 0 25px #00f2ff;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .game-cards-container {
+      display: flex;
+      gap: 2vw;
+      margin-bottom: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .game-card {
+      background: #111;
+      border: 3px solid #00f2ff;
+      border-radius: 20px;
+      padding: 10px;
+      width: 140px;
+      max-width: 40vw;
+      box-shadow: 0 8px 0 #00f2ff;
+      color: white;
+    }
+
+    .game-card p {
+      margin: 5px 0 0;
+      font-size: 0.8rem;
+    }
+
+    .game-card-skin {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .game-card-skin:hover {
+      transform: scale(1.05);
+    }
+
+    .game-card-skin.active {
+      border-color: #00ff99;
+      box-shadow: 0 8px 0 #00ff99;
+    }
+
+    .game-skin-preview {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 5px;
+    }
+
+    .game-btn {
+      background: #00f2ff;
+      color: #000;
+      border: none;
+      border-bottom: 5px solid #008899;
+      padding: 10px 0;
+      width: 260px;
+      max-width: 85vw;
+      font-family: 'Arial Black', sans-serif;
+      font-size: clamp(1rem, 4.5vw, 22px);
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 12px;
+      text-transform: uppercase;
+      margin: 5px auto;
+      transition: transform 0.2s, filter 0.2s, border-bottom 0.1s;
+      display: block;
+      line-height: 1.2;
+    }
+
+    .game-btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.15);
+    }
+
+    .game-btn:active {
+      border-bottom-width: 2px;
+      transform: translateY(3px) scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .game-btn {
+        width: 70%;
+        max-width: 350px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .game-btn {
+        width: 85%;
+        font-size: 0.9rem;
+        padding: 8px 0;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .game-btn {
+        width: 90%;
+        font-size: 0.8rem;
+      }
+    }
+
+    .game-btn-small {
+      background: #333;
+      border-bottom-color: #111;
+      color: white;
+    }
+
+    .game-btn-skin {
+      background: #ffaa00;
+      border-bottom-color: #b37700;
+    }
+
+    .game-btn-win {
+      background: #00ff99;
+      border-bottom-color: #008855;
+    }
+
+    .game-btn-exit {
+      background: #ff3333;
+      border-bottom-color: #990000;
+      color: white;
+    }
+
+    #game-puntos {
+      position: absolute;
+      top: 5px;
+      width: 100%;
+      text-align: center;
+      font-size: clamp(2rem, 10vw, 70px);
+      color: white;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+
+    @media (max-width: 480px) {
+      .game-card {
+        width: 110px;
+        padding: 6px;
+      }
+
+      .game-skin-preview {
+        width: 45px;
+        height: 45px;
+      }
+
+      .game-titulo {
+        font-size: clamp(1.8rem, 6vw, 50px);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .game-card {
+        width: 95px;
+      }
+
+      .game-skin-preview {
+        width: 40px;
+        height: 40px;
+      }
+
+      .game-titulo {
+        font-size: clamp(1.5rem, 5vw, 40px);
+      }
+    }
+
+    #game-menu-skins,
+    #game-menu-instrucciones {
+      padding: 2rem 1rem;
+    }
+
+    #game-menu-skins .game-titulo,
+    #game-menu-instrucciones .game-titulo {
+      margin-bottom: 25px;
+    }
+
+    #game-menu-skins .game-cards-container,
+    #game-menu-instrucciones .game-cards-container {
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+
+    #game-menu-skins .game-btn,
+    #game-menu-instrucciones .game-btn {
+      margin-top: 15px;
+    }
+
+    @media (max-width: 480px) {
+
+      #game-menu-skins,
+      #game-menu-instrucciones {
+        padding: 1.5rem 0.8rem;
+      }
+
+      #game-menu-skins .game-cards-container,
+      #game-menu-instrucciones .game-cards-container {
+        gap: 15px;
+      }
+    }
   </style>
 </head>
 
@@ -1348,9 +1714,8 @@
                           alt="Python Logo" title="Python">
                       </div>
                       <div class="col-2 tech-item">
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
-                          alt="Figma Logo" title="Figma">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma Logo"
+                          title="Figma">
                       </div>
                       <div class="col-2 tech-item">
                         <img
@@ -1965,9 +2330,8 @@
               <p class="text-white">Sistema con roles de usuario y administrador para ver todos los dispositivos
                 conectados.</p>
               <div class="project-tech">
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
-                  alt="Figma-logo" title="Figma"
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma-logo"
+                  title="Figma"
                   style="width: 23px; height: 30px; vertical-align: middle; margin-right: 5px; transition: transform 0.2s;"
                   onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'" />
                 <img src="https://cdn.raiolanetworks.com/blog/wp-content/uploads/que-es-tailwind-css.png"
@@ -2109,6 +2473,91 @@
     </div>
   </div>
 
+  <!-- Modal del juego Capy Dash -->
+  <div class="modal fade game-modal" id="gameModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static"
+    data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered game-dialog">
+      <div class="modal-content game-content">
+        <div class="game-container">
+          <div id="game-escenario">
+            <div id="game-puntos">0</div>
+            <div id="game-suelo"></div>
+            <div id="game-capybara"></div>
+            <div id="game-obstaculo" class="game-espina"></div>
+
+            <!-- Inicio -->
+            <div id="game-menu-inicio" class="game-modal-inner">
+              <h1 class="game-titulo">CAPY DASH</h1>
+              <button class="game-btn" onclick="gameIniciar(event)">¡JUGAR!</button>
+              <button class="game-btn game-btn-skin" onclick="gameAbrirSkins()">Skins</button>
+              <button class="game-btn game-btn-small" onclick="gameAbrirInstrucciones()">Instrucciones</button>
+              <button class="game-btn game-btn-exit" onclick="gameCerrarModal()">SALIR</button>
+            </div>
+
+            <!-- Skins -->
+            <div id="game-menu-skins" class="game-modal-inner" style="display:none;">
+              <h2 class="game-titulo" style="font-size: clamp(2rem,6vw,50px);">ELIGE TU SKIN</h2>
+              <div class="game-cards-container">
+                <div class="game-card game-card-skin active" onclick="gameCambiarSkin(0, this)"><img
+                    src="img/capibaraSkins/capybaraJuego.png" class="game-skin-preview">
+                  <p>CLÁSICO</p>
+                </div>
+                <div class="game-card game-card-skin" onclick="gameCambiarSkin(1, this)"><img
+                    src="img/capibaraSkins/capyGirl.png" class="game-skin-preview">
+                  <p>CAPYCHICA</p>
+                </div>
+                <div class="game-card game-card-skin" onclick="gameCambiarSkin(2, this)"><img
+                    src="img/capibaraSkins/capyNinja.png" class="game-skin-preview">
+                  <p>NINJA</p>
+                </div>
+                <div class="game-card game-card-skin" onclick="gameCambiarSkin(3, this)"><img
+                    src="img/capibaraSkins/capyElegante.png" class="game-skin-preview">
+                  <p>ELEGANTE</p>
+                </div>
+              </div>
+              <button class="game-btn" onclick="gameCerrarSkins()">CONFIRMAR</button>
+            </div>
+
+            <!-- Instrucciones -->
+            <div id="game-menu-instrucciones" class="game-modal-inner" style="display:none;">
+              <h2 class="game-titulo" style="font-size: clamp(2rem,7vw,60px);">CÓMO JUGAR</h2>
+              <div class="game-cards-container">
+                <div class="game-card"><span style="font-size:45px;">⌨️</span>
+                  <p>Usa <b>ESPACIO</b><br>para saltar</p>
+                </div>
+                <div class="game-card"><span style="font-size:45px;">🖱️</span>
+                  <p>Haz <b>CLIC</b><br>para saltar</p>
+                </div>
+                <div class="game-card" style="border-color:#00ff99; box-shadow:0 8px 0 #00ff99;"><span
+                    style="font-size:45px;">🏆</span>
+                  <p>Llega a <b>500 puntos</b><br>para ganar</p>
+                </div>
+              </div>
+              <button class="game-btn" onclick="gameCerrarInstrucciones()">ENTENDIDO</button>
+            </div>
+
+            <!-- Game Over -->
+            <div id="game-over" class="game-modal-inner" style="display:none;">
+              <h1 style="color:#ff0055; text-shadow:4px 4px 0 #400,0 0 25px #ff0055; font-size:clamp(2rem,8vw,75px);">
+                ¡CAPI-CHOCASTE!</h1>
+              <p id="game-score-final" style="font-size:clamp(1rem,4vw,30px); margin:30px 0;">Lograste: 0 puntos</p>
+              <button class="game-btn" onclick="gameReintentar()">REINTENTAR</button>
+              <button class="game-btn game-btn-exit" onclick="gameCerrarModal()">SALIR</button>
+            </div>
+
+            <!-- Victoria -->
+            <div id="game-victoria" class="game-modal-inner" style="display:none;">
+              <h1 style="color:#00ff99; text-shadow:0 0 30px #00ff99; font-size:clamp(2rem,8vw,75px);">¡HAS GANADO!</h1>
+              <p style="font-size:clamp(1rem,4vw,35px);">¡Gracias por visitar mi portafolio!</p>
+              <button class="game-btn game-btn-win" onclick="gameReintentar()">REPETIR</button>
+              <button class="game-btn game-btn-exit" onclick="gameCerrarModal()">SALIR</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Footer -->
   <footer class="text-white pt-5 pb-3">
     <div class="container">
@@ -2130,6 +2579,10 @@
             <p class="social-hover" onclick="window.open('https://wa.me/51904652881', '_blank')">
               <i class="bi bi-whatsapp me-2"></i>+51 904 652 881
             </p>
+            <p class="social-hover" id="footerWarning">
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              <span id="footerWarningText">No tocar aquí</span>
+            </p>
           </div>
         </div>
         <div class="col-md-4">
@@ -2141,7 +2594,8 @@
                 <i class="bi bi-linkedin me-2"></i>LinkedIn
               </li>
               <li class="social-hover" onclick="window.open('https://github.com/JesusMacalupu', '_blank')"><i
-                  class="bi bi-github me-2"></i>GitHub</li>
+                  class="bi bi-github me-2"></i>GitHub
+              </li>
             </ul>
           </div>
         </div>
@@ -2608,5 +3062,133 @@
     });
   </script>
 
+  <script>
+    // Lógica del juego Capy Dash y footer interactivo
+    const gameCapybara = document.getElementById("game-capybara");
+    const gameObstaculo = document.getElementById("game-obstaculo");
+    const gameMarcador = document.getElementById("game-puntos");
+    let gameScore = 0, gameVivo = false, gamePuedeSaltar = false;
+    const gameMETA = 500;
+    const gameSkins = ['img/capibaraSkins/capybaraJuego.png', 'img/capibaraSkins/capyGirl.png', 'img/capibaraSkins/capyNinja.png', 'img/capibaraSkins/capyElegante.png'];
+
+    function gameAbrirSkins() { document.getElementById("game-menu-inicio").style.display = "none"; document.getElementById("game-menu-skins").style.display = "flex"; }
+    function gameCerrarSkins() { document.getElementById("game-menu-skins").style.display = "none"; document.getElementById("game-menu-inicio").style.display = "flex"; }
+    function gameAbrirInstrucciones() { document.getElementById("game-menu-inicio").style.display = "none"; document.getElementById("game-menu-instrucciones").style.display = "flex"; }
+    function gameCerrarInstrucciones() { document.getElementById("game-menu-instrucciones").style.display = "none"; document.getElementById("game-menu-inicio").style.display = "flex"; }
+
+    function gameCambiarSkin(index, el) {
+      gameCapybara.style.backgroundImage = `url('${gameSkins[index]}')`;
+      document.querySelectorAll('.game-card-skin').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    function gameIniciar(e) {
+      if (e) e.stopPropagation();
+      document.getElementById("game-menu-inicio").style.display = "none";
+      gameVivo = true;
+      gameObstaculo.classList.add("game-mover-obs");
+      gameObstaculo.style.animationPlayState = "running";
+      setTimeout(() => { gamePuedeSaltar = true; document.body.onclick = gameSaltar; }, 150);
+    }
+
+    function gameReintentar() {
+      gameVivo = false; gamePuedeSaltar = false; gameScore = 0; gameMarcador.innerText = '0';
+      gameObstaculo.classList.remove("game-mover-obs");
+      gameObstaculo.style.animationPlayState = "running";
+      document.getElementById("game-over").style.display = "none";
+      document.getElementById("game-victoria").style.display = "none";
+      document.getElementById("game-menu-inicio").style.display = "flex";
+    }
+
+    function gameSaltar() {
+      if (gameVivo && gamePuedeSaltar && !gameCapybara.classList.contains("game-salto")) {
+        gameCapybara.classList.add("game-salto");
+        gameCapybara.addEventListener('animationend', () => gameCapybara.classList.remove("game-salto"), { once: true });
+      }
+    }
+    function manejarTecladoGame(e) { if (e.code === "Space") { e.preventDefault(); gameSaltar(); } }
+
+    function gameHayColision() {
+      const capy = gameCapybara.getBoundingClientRect();
+      const obs = gameObstaculo.getBoundingClientRect();
+      const margen = capy.width * 0.25;
+      const capyLeft = capy.left + margen;
+      const capyRight = capy.right - margen;
+      const obsLeft = obs.left + margen;
+      const obsRight = obs.right - margen;
+      if (capyRight > obsLeft && capyLeft < obsRight) {
+        const capyBottom = capy.bottom;
+        const obsTop = obs.top;
+        if (capyBottom > obsTop + 5) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    const gameLoop = setInterval(() => {
+      if (!gameVivo) return;
+      if (gameHayColision()) {
+        gameVivo = false; gamePuedeSaltar = false;
+        gameObstaculo.style.animationPlayState = "paused";
+        document.getElementById("game-score-final").innerText = "Lograste: " + Math.floor(gameScore / 10) + " puntos";
+        document.getElementById("game-over").style.display = "flex";
+      } else {
+        gameScore++;
+        gameMarcador.innerText = Math.floor(gameScore / 10);
+        if (Math.floor(gameScore / 10) >= gameMETA) {
+          gameVivo = false; gamePuedeSaltar = false;
+          gameObstaculo.style.animationPlayState = "paused";
+          document.getElementById("game-victoria").style.display = "flex";
+        }
+      }
+    }, 10);
+
+    function gameReset() {
+      gameVivo = false; gamePuedeSaltar = false; gameScore = 0; gameMarcador.innerText = '0';
+      gameObstaculo.classList.remove("game-mover-obs");
+      gameObstaculo.style.animationPlayState = "running";
+      document.getElementById("game-menu-inicio").style.display = "flex";
+      document.getElementById("game-menu-skins").style.display = "none";
+      document.getElementById("game-menu-instrucciones").style.display = "none";
+      document.getElementById("game-over").style.display = "none";
+      document.getElementById("game-victoria").style.display = "none";
+      document.body.onclick = null;
+    }
+
+    function gameCerrarModal() {
+      const modal = bootstrap.Modal.getInstance(document.getElementById('gameModal'));
+      if (modal) modal.hide();
+      gameReset();
+    }
+
+    document.getElementById('gameModal').addEventListener('hidden.bs.modal', gameReset);
+    document.getElementById('gameModal').addEventListener('show.bs.modal', gameReset);
+
+    const gameFooter = document.getElementById('footerWarning');
+    const gameFooterText = document.getElementById('footerWarningText');
+    let gameClicks = 0;
+    const gameMsg = [
+      'No tocar aquí',
+      '¿Por qué le diste clic?',
+      'Ya no des más clic',
+      'Te lo advertí, eres curioso',
+      'Juego desbloqueado'
+    ];
+    const gameModal = new bootstrap.Modal(document.getElementById('gameModal'));
+
+    if (gameFooter) gameFooter.addEventListener('click', () => {
+      gameClicks++;
+      if (gameClicks <= 4) gameFooterText.textContent = gameMsg[gameClicks];
+      if (gameClicks === 5) {
+        gameModal.show();
+        gameClicks = 0;
+        gameFooterText.textContent = gameMsg[0];
+        gameReset();
+      }
+    });
+  </script>
+
 </body>
+
 </html>
