@@ -3071,33 +3071,30 @@
     const gameMETA = 500;
     const gameSkins = ['img/capibaraSkins/capybaraJuego.png', 'img/capibaraSkins/capyGirl.png', 'img/capibaraSkins/capyNinja.png', 'img/capibaraSkins/capyElegante.png'];
 
-    function gameAbrirSkins() { document.getElementById("game-menu-inicio").style.display = "none"; document.getElementById("game-menu-skins").style.display = "flex"; }
-    function gameCerrarSkins() { document.getElementById("game-menu-skins").style.display = "none"; document.getElementById("game-menu-inicio").style.display = "flex"; }
-    function gameAbrirInstrucciones() { document.getElementById("game-menu-inicio").style.display = "none"; document.getElementById("game-menu-instrucciones").style.display = "flex"; }
-    function gameCerrarInstrucciones() { document.getElementById("game-menu-instrucciones").style.display = "none"; document.getElementById("game-menu-inicio").style.display = "flex"; }
+    function gameAbrirSkins() {
+      document.getElementById("game-menu-inicio").style.display = "none";
+      document.getElementById("game-menu-skins").style.display = "flex";
+    }
+
+    function gameCerrarSkins() {
+      document.getElementById("game-menu-skins").style.display = "none";
+      document.getElementById("game-menu-inicio").style.display = "flex";
+    }
+
+    function gameAbrirInstrucciones() {
+      document.getElementById("game-menu-inicio").style.display = "none";
+      document.getElementById("game-menu-instrucciones").style.display = "flex";
+    }
+
+    function gameCerrarInstrucciones() {
+      document.getElementById("game-menu-instrucciones").style.display = "none";
+      document.getElementById("game-menu-inicio").style.display = "flex";
+    }
 
     function gameCambiarSkin(index, el) {
       gameCapybara.style.backgroundImage = `url('${gameSkins[index]}')`;
       document.querySelectorAll('.game-card-skin').forEach(c => c.classList.remove('active'));
       el.classList.add('active');
-    }
-
-    function gameIniciar(e) {
-      if (e) e.stopPropagation();
-      document.getElementById("game-menu-inicio").style.display = "none";
-      gameVivo = true;
-      gameObstaculo.classList.add("game-mover-obs");
-      gameObstaculo.style.animationPlayState = "running";
-      setTimeout(() => { gamePuedeSaltar = true; document.body.onclick = gameSaltar; }, 150);
-    }
-
-    function gameReintentar() {
-      gameVivo = false; gamePuedeSaltar = false; gameScore = 0; gameMarcador.innerText = '0';
-      gameObstaculo.classList.remove("game-mover-obs");
-      gameObstaculo.style.animationPlayState = "running";
-      document.getElementById("game-over").style.display = "none";
-      document.getElementById("game-victoria").style.display = "none";
-      document.getElementById("game-menu-inicio").style.display = "flex";
     }
 
     function gameSaltar() {
@@ -3106,7 +3103,27 @@
         gameCapybara.addEventListener('animationend', () => gameCapybara.classList.remove("game-salto"), { once: true });
       }
     }
-    function manejarTecladoGame(e) { if (e.code === "Space") { e.preventDefault(); gameSaltar(); } }
+
+    function manejarTecladoGame(e) {
+      if (e.code === "Space") {
+        e.preventDefault(); // Evita el scroll de la página
+        e.stopPropagation(); // Evita que otros elementos capturen el evento
+        gameSaltar();
+      }
+    }
+
+    function gameIniciar(e) {
+      if (e) e.stopPropagation();
+      document.getElementById("game-menu-inicio").style.display = "none";
+      gameVivo = true;
+      gameObstaculo.classList.add("game-mover-obs");
+      gameObstaculo.style.animationPlayState = "running";
+      setTimeout(() => {
+        gamePuedeSaltar = true;
+        document.body.onclick = gameSaltar; // Click funciona
+        document.addEventListener('keydown', manejarTecladoGame); // Tecla espacio funciona
+      }, 150);
+    }
 
     function gameHayColision() {
       const capy = gameCapybara.getBoundingClientRect();
@@ -3116,6 +3133,7 @@
       const capyRight = capy.right - margen;
       const obsLeft = obs.left + margen;
       const obsRight = obs.right - margen;
+
       if (capyRight > obsLeft && capyLeft < obsRight) {
         const capyBottom = capy.bottom;
         const obsTop = obs.top;
@@ -3128,24 +3146,55 @@
 
     const gameLoop = setInterval(() => {
       if (!gameVivo) return;
+
       if (gameHayColision()) {
-        gameVivo = false; gamePuedeSaltar = false;
+        gameVivo = false;
+        gamePuedeSaltar = false;
         gameObstaculo.style.animationPlayState = "paused";
         document.getElementById("game-score-final").innerText = "Lograste: " + Math.floor(gameScore / 10) + " puntos";
         document.getElementById("game-over").style.display = "flex";
+
+        // Limpiar eventos cuando pierde
+        document.body.onclick = null;
+        document.removeEventListener('keydown', manejarTecladoGame);
       } else {
         gameScore++;
         gameMarcador.innerText = Math.floor(gameScore / 10);
+
         if (Math.floor(gameScore / 10) >= gameMETA) {
-          gameVivo = false; gamePuedeSaltar = false;
+          gameVivo = false;
+          gamePuedeSaltar = false;
           gameObstaculo.style.animationPlayState = "paused";
           document.getElementById("game-victoria").style.display = "flex";
+
+          // Limpiar eventos cuando gana
+          document.body.onclick = null;
+          document.removeEventListener('keydown', manejarTecladoGame);
         }
       }
     }, 10);
 
+    function gameReintentar() {
+      gameVivo = false;
+      gamePuedeSaltar = false;
+      gameScore = 0;
+      gameMarcador.innerText = '0';
+      gameObstaculo.classList.remove("game-mover-obs");
+      gameObstaculo.style.animationPlayState = "running";
+      document.getElementById("game-over").style.display = "none";
+      document.getElementById("game-victoria").style.display = "none";
+      document.getElementById("game-menu-inicio").style.display = "flex";
+
+      // Limpiar eventos
+      document.body.onclick = null;
+      document.removeEventListener('keydown', manejarTecladoGame);
+    }
+
     function gameReset() {
-      gameVivo = false; gamePuedeSaltar = false; gameScore = 0; gameMarcador.innerText = '0';
+      gameVivo = false;
+      gamePuedeSaltar = false;
+      gameScore = 0;
+      gameMarcador.innerText = '0';
       gameObstaculo.classList.remove("game-mover-obs");
       gameObstaculo.style.animationPlayState = "running";
       document.getElementById("game-menu-inicio").style.display = "flex";
@@ -3153,7 +3202,10 @@
       document.getElementById("game-menu-instrucciones").style.display = "none";
       document.getElementById("game-over").style.display = "none";
       document.getElementById("game-victoria").style.display = "none";
+
+      // Limpiar eventos
       document.body.onclick = null;
+      document.removeEventListener('keydown', manejarTecladoGame);
     }
 
     function gameCerrarModal() {
@@ -3162,9 +3214,11 @@
       gameReset();
     }
 
+    // Event listeners del modal
     document.getElementById('gameModal').addEventListener('hidden.bs.modal', gameReset);
     document.getElementById('gameModal').addEventListener('show.bs.modal', gameReset);
 
+    // Footer interactivo para desbloquear el juego
     const gameFooter = document.getElementById('footerWarning');
     const gameFooterText = document.getElementById('footerWarningText');
     let gameClicks = 0;
@@ -3177,16 +3231,26 @@
     ];
     const gameModal = new bootstrap.Modal(document.getElementById('gameModal'));
 
-    if (gameFooter) gameFooter.addEventListener('click', () => {
-      gameClicks++;
-      if (gameClicks <= 4) gameFooterText.textContent = gameMsg[gameClicks];
-      if (gameClicks === 5) {
-        gameModal.show();
-        gameClicks = 0;
-        gameFooterText.textContent = gameMsg[0];
-        gameReset();
+    if (gameFooter) {
+      gameFooter.addEventListener('click', () => {
+        gameClicks++;
+        if (gameClicks <= 4) {
+          gameFooterText.textContent = gameMsg[gameClicks];
+        }
+        if (gameClicks === 5) {
+          gameModal.show();
+          gameClicks = 0;
+          gameFooterText.textContent = gameMsg[0];
+          gameReset();
+        }
+      });
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.code === "Space") {
+        e.preventDefault();
       }
-    });
+    }, false);
   </script>
 
 </body>
